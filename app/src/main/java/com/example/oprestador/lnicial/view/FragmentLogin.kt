@@ -10,29 +10,36 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
+import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.user.view.UserActivity
 
 
-class FragmentLogin : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreate(savedInstanceState)
+class FragmentLogin : Fragment(R.layout.fragment_login) {
 
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+    private var binding: FragmentLoginBinding? = null
 
-        view.findViewById<Button>(R.id.btn_acessar).setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
+        binding = FragmentLoginBinding.bind(view)
+
+        with(binding!!) {
+            btnAcessar.setOnClickListener {
+
+                Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
 
 //            val intent = Intent(context, UserActivity::class.java)
 //            startActivity(intent)
+            }
+
+            txtCadastro.setOnClickListener {
+                Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentCadastro)
+            }
         }
+    }
 
-        view.findViewById<TextView>(R.id.txtCadastro).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentCadastro)
-        }
-
-        return view
-
-
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 }
