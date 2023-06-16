@@ -43,6 +43,7 @@ class FragmentDivisor : Fragment(R.layout.fragment_divisor) {
     }
 
     override fun onDestroy() {
+        binding = null
         super.onDestroy()
     }
 }
