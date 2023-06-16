@@ -9,20 +9,26 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
+import com.example.oprestador.databinding.FragmentPedidosAbertosBinding
 
-class FragmentPedidosAbertos : Fragment() {
+class FragmentPedidosAbertos : Fragment(R.layout.fragment_pedidos_abertos) {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_pedidos_abertos, container, false)
-    }
+    private var binding: FragmentPedidosAbertosBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rv = view.findViewById<RecyclerView>(R.id.pedidosAbertos_rv_pedidos)
+        binding = FragmentPedidosAbertosBinding.bind(view)
+
+        val rv = binding!!.pedidosAbertosRvPedidos
         rv.layoutManager = LinearLayoutManager(requireContext())
         rv.adapter = PedidosAbertoAdapter()
 
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 
     private class PedidosAbertoAdapter : RecyclerView.Adapter<PedidosAbertoAdapter.ListPedidosViewHolder> () {
