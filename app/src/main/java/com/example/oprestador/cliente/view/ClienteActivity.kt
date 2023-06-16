@@ -26,15 +26,18 @@ class ClienteActivity : AppCompatActivity() {
 
         binding = ActivityClienteBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
+        with(binding) {
 
-        setSupportActionBar(binding.appBarCliente.toolbarCliente)
+            setContentView(root)
 
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_fragmentPedidoNovo, R.id.nav_fragmentPedidosAbertos
-            ),binding.drawerLayoutCliente
-        )
+            setSupportActionBar(appBarCliente.toolbarCliente)
+
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.nav_fragmentPedidoNovo, R.id.nav_fragmentPedidosAbertos
+                ),drawerLayoutCliente
+            )
+        }
 
         navControler = findNavController(R.id.nav_cliente_fragment)
 
