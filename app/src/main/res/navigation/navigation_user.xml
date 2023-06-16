@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_user"
+    app:startDestination="@+id/nav_fragmentListaPedidos">
+
+    <fragment
+        android:id="@+id/nav_fragmentListaPedidos"
+        android:name="com.example.oprestador.user.view.ListaPedidosFragment"
+        android:label="@string/txt_menu_lista_Pedidos"
+        tools:layout="@layout/fragment_lista_pedidos">
+        <action
+            android:id="@+id/action_nav_fragmentListaPedidos_to_fragmentPedidoDetalhado"
+            app:destination="@id/fragmentPedidoDetalhado" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragmentMeusPedidos"
+        android:name="com.example.oprestador.user.view.MeusPedidosFragment"
+        android:label="@string/txt_menu_meus_pedidos"
+        tools:layout="@layout/fragment_meus_pedidos"/>
+
+    <fragment
+        android:id="@+id/nav_fragmentPerfil"
+        android:name="com.example.oprestador.user.view.PerfilFragment"
+        android:label="@string/txt_menu_perfil"
+        tools:layout="@layout/fragment_perfil"/>
+    <fragment
+        android:id="@+id/fragmentPedidoDetalhado"
+        android:name="com.example.oprestador.user.view.FragmentPedidoDetalhado"
+        android:label="@string/label_fragment_pedido_detalhado" />
+
+</navigation>

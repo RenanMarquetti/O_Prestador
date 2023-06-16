@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- cor da borda -->
+    <item>
+        <shape>
+            <solid android:color="@color/primaria_2" />
+        </shape>
+    </item>
+
+    <!-- cor de fundo, tamanho somente da borda inferior -->
+    <item android:bottom="2dp">
+        <shape>
+            <solid android:color="@color/segundaria_2" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/segundaria_2"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/logo_primaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/nome_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_cadastro"
+        android:textAlignment="center"
+        android:textColor="@color/primaria_2"
+        android:textSize="14pt"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        android:layout_marginTop="-10dp"/>
+
+    <EditText
+        android:id="@+id/input_login_cadastro"
+        style="@style/editText_bordas_redondas"
+        android:hint="@string/hint_login_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome_app" />
+
+    <EditText
+        android:id="@+id/input_senha_cadastro"
+        style="@style/editText_bordas_redondas"
+        android:hint="@string/hint_senha_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_login_cadastro"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/input_repeticao_senha_cadastro"
+        style="@style/editText_bordas_redondas"
+        android:hint="@string/hint_repeticao_senha_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_senha_cadastro"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_cadastro"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borda_arredondada"
+        android:backgroundTint="@color/primaria_2"
+        android:text="@string/txt_cadastrar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_repeticao_senha_cadastro"
+        android:layout_marginTop="20dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

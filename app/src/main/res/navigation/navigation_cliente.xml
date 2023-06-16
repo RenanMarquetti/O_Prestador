@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_cliente.xml"
+    app:startDestination="@id/nav_fragmentPedidoNovo">
+
+    <fragment
+        android:id="@+id/nav_fragmentPedidoNovo"
+        android:name="com.example.oprestador.cliente.view.FragmentPedidoNovo"
+        android:label="@string/title_novo_pedido" />
+
+    <fragment
+        android:id="@+id/nav_fragmentPedidosAbertos"
+        android:name="com.example.oprestador.cliente.view.FragmentPedidosAbertos"
+        android:label="@string/title_pedido_aberto" />
+
+</navigation>

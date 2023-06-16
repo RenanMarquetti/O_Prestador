@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="editText_bordas_redondas">
+        <item name="android:layout_width">320dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/borda_arredondada</item>
+        <item name="android:padding">13dp</item>
+        <item name="android:textColor">@color/primaria_2</item>
+        <item name="android:textColorHint">@color/primaria_2</item>
+    </style>
+
+    <style name="perfil_edittext">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/background_edit_text_perfil</item>
+        <item name="android:hint">@string/perfil_rua</item>
+        <item name="android:textColor">@color/primaria_2</item>
+        <item name="android:textColorHint">@color/primaria_2</item>
+    </style>
+
+    <style name="perfil_title">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaria_2</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="pedidoDetalhado_textView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaria_2</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/borda_arredondada_pequena</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="AutoCompleteTextView" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="android:textColorHint">@color/primaria_2</item>
+        <item name="endIconDrawable">@drawable/seta_para_baixo</item>
+        <item name="endIconTint">@color/primaria_2</item>
+        <item name="boxStrokeColor">@color/mtrl_textinput_default_box_stroke_color</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="Input_AutoCompleteTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+    <style name="editText_pedido_novo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/background_edit_text_perfil</item>
+        <item name="android:textColorHint">@color/primaria_2</item>
+    </style>
+</resources>

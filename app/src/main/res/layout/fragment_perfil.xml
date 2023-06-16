@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/segundaria_2">
+
+    <ImageView
+        android:id="@+id/meuPerfil_imageView_fotoPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/segundaria_1"
+        android:padding="25dp"
+        android:src="@drawable/perfil_pesquisa_imagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txt_img_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/img_perfil"
+        android:textColor="@color/primaria_2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meuPerfil_imageView_fotoPerfil" />
+
+
+    <LinearLayout
+        android:id="@+id/input_dados_perfil"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_img_perfil">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_title_dados_pessoais"
+                style="@style/perfil_title"
+                android:layout_width="match_parent"
+                android:text="@string/perfil_dados_pessoais"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/perfil_nome_completo"
+                style="@style/perfil_edittext"
+                android:layout_width="match_parent"
+                android:text="@string/perfil_nome_completo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_dados_pessoais" />
+
+            <EditText
+                android:id="@+id/pefil_ddd"
+                style="@style/perfil_edittext"
+                android:layout_width="60dp"
+                android:text="@string/ddd_telefone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_nome_completo" />
+
+            <EditText
+                android:id="@+id/pefil_telefone"
+                style="@style/perfil_edittext"
+                android:layout_width="295dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/telefone"
+                app:layout_constraintStart_toEndOf="@+id/pefil_ddd"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_nome_completo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/input_editText_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txt_title_endereco"
+                style="@style/perfil_title"
+                android:layout_width="match_parent"
+                android:text="@string/endereco"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/perfil_endereco"
+                style="@style/perfil_edittext"
+                android:layout_width="150dp"
+                android:text="@string/endereco"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
+
+            <EditText
+                android:id="@+id/pefil_num_endereco"
+                style="@style/perfil_edittext"
+                android:layout_width="50dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/num_endereco"
+                app:layout_constraintStart_toEndOf="@+id/perfil_endereco"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
+
+            <EditText
+                android:id="@+id/perfil_cep"
+                style="@style/perfil_edittext"
+                android:layout_width="150dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/cep_endereco"
+                app:layout_constraintStart_toEndOf="@+id/pefil_num_endereco"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
+
+            <EditText
+                android:id="@+id/pefil_complemento"
+                style="@style/perfil_edittext"
+                android:layout_width="match_parent"
+                android:text="@string/perfil_complemento"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/perfil_cep" />
+
+            <EditText
+                android:id="@+id/pedil_cidade"
+                style="@style/perfil_edittext"
+                android:layout_width="230dp"
+                android:text="@string/perfil_cidade"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pefil_complemento" />
+
+            <EditText
+                android:id="@+id/pefil_bairro"
+                style="@style/perfil_edittext"
+                android:layout_width="125dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/perfil_bairro"
+                app:layout_constraintStart_toEndOf="@+id/pedil_cidade"
+                app:layout_constraintTop_toBottomOf="@+id/pefil_complemento" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkbox_concentimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:buttonTint="@color/green"
+        android:checked="true"
+        android:text="@string/consentimento_termos_de_uso"
+        android:textColor="@color/primaria_2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/input_dados_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/input_dados_perfil" />
+
+    <Button
+        android:id="@+id/btn_perfil"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/borda_arredondada"
+        app:backgroundTint="@color/white"
+        android:text="@string/txt_cadastrar"
+        android:textColor="@color/primaria_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_concentimento" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
