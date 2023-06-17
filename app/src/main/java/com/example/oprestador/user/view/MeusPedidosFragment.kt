@@ -29,6 +29,11 @@ class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
 
     }
 
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
+
     private class MeusPedidosAdapter : RecyclerView.Adapter<MeusPedidosAdapter.ListPedidosViewHolder> () {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
