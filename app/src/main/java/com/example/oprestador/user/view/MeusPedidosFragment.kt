@@ -9,19 +9,23 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
+import com.example.oprestador.databinding.FragmentMeusPedidosBinding
 
-class MeusPedidosFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
 
-        return inflater.inflate(R.layout.fragment_meus_pedidos, container, false)
-    }
+    private var binding: FragmentMeusPedidosBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rv = view.findViewById<RecyclerView>(R.id.meusPedidos_rv_pedidos)
-        rv.layoutManager = LinearLayoutManager(requireContext())
-        rv.adapter = MeusPedidosAdapter()
+        binding = FragmentMeusPedidosBinding.bind(view)
+
+        with(binding!!) {
+
+            meusPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
+            meusPedidosRvPedidos.adapter = MeusPedidosAdapter()
+        }
+
 
     }
 
