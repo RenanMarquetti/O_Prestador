@@ -10,19 +10,28 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
+import com.example.oprestador.databinding.FragmentListaPedidosBinding
 
-class ListaPedidosFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_lista_pedidos, container, false)
-    }
+class ListaPedidosFragment : Fragment(R.layout.fragment_lista_pedidos) {
+
+    private var binding: FragmentListaPedidosBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rv = view.findViewById<RecyclerView>(R.id.listaPedidos_rv_pedidos)
-        rv.layoutManager = LinearLayoutManager(requireContext())
-        rv.adapter = ListPedidosAdapter()
+        binding = FragmentListaPedidosBinding.bind(view)
 
+        with(binding!!) {
+
+            listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
+            listaPedidosRvPedidos.adapter = ListPedidosAdapter()
+        }
+
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 
     private class ListPedidosAdapter : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
