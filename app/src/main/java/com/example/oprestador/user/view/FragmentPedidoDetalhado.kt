@@ -6,13 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.oprestador.R
+import com.example.oprestador.databinding.FragmentPedidoDetalhadoBinding
 
-class FragmentPedidoDetalhado : Fragment() {
+class PedidoDetalhadoFragment : Fragment(R.layout.fragment_pedido_detalhado) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_pedido_detalhado, container, false)
+    private var binding:FragmentPedidoDetalhadoBinding? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentPedidoDetalhadoBinding.bind(view)
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 
 }
