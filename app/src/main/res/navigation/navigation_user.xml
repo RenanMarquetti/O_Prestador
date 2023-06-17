@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_fragmentListaPedidos"
-        android:name="com.example.oprestador.user.view.ListaPedidosFragment"
+        android:name="com.example.oprestador.user.view.FragmentListaPedidos"
         android:label="@string/txt_menu_lista_Pedidos"
         tools:layout="@layout/fragment_lista_pedidos">
         <action
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/nav_fragmentMeusPedidos"
-        android:name="com.example.oprestador.user.view.MeusPedidosFragment"
+        android:name="com.example.oprestador.user.view.FragmentMeusPedidos"
         android:label="@string/txt_menu_meus_pedidos"
         tools:layout="@layout/fragment_meus_pedidos"/>
 
     <fragment
         android:id="@+id/nav_fragmentPerfil"
-        android:name="com.example.oprestador.user.view.PerfilFragment"
+        android:name="com.example.oprestador.user.view.FragmentPerfil"
         android:label="@string/txt_menu_perfil"
         tools:layout="@layout/fragment_perfil"/>
     <fragment

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.oprestador.R
 import com.example.oprestador.databinding.FragmentPedidoDetalhadoBinding
 
-class PedidoDetalhadoFragment : Fragment(R.layout.fragment_pedido_detalhado) {
+class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
 
     private var binding:FragmentPedidoDetalhadoBinding? = null
 

@@ -6,26 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
-import com.example.oprestador.databinding.FragmentMeusPedidosBinding
+import com.example.oprestador.databinding.FragmentListaPedidosBinding
 
-class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
+class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
-    private var binding: FragmentMeusPedidosBinding? = null
+    private var binding: FragmentListaPedidosBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentMeusPedidosBinding.bind(view)
+        binding = FragmentListaPedidosBinding.bind(view)
 
         with(binding!!) {
 
-            meusPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
-            meusPedidosRvPedidos.adapter = MeusPedidosAdapter()
+            listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
+            listaPedidosRvPedidos.adapter = ListPedidosAdapter()
         }
-
 
     }
 
@@ -34,7 +34,7 @@ class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
         super.onDestroy()
     }
 
-    private class MeusPedidosAdapter : RecyclerView.Adapter<MeusPedidosAdapter.ListPedidosViewHolder> () {
+    private class ListPedidosAdapter : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
@@ -43,7 +43,7 @@ class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
         }
 
         override fun getItemCount(): Int {
-            return 3
+            return 10
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {
@@ -56,6 +56,9 @@ class MeusPedidosFragment : Fragment(R.layout.fragment_meus_pedidos) {
                 itemView.findViewById<TextView>(R.id.layoutPedidoRedumidos_txt_titulo).setText("Titulo ${posi+1}")
                 itemView.findViewById<TextView>(R.id.layoutPedidoRedumidostxt_cliente).setText("Nome Cliente ${posi+1}")
                 itemView.findViewById<TextView>(R.id.layoutPedidoRedumidos_txt_local).setText("Local ${posi+1}")
+                itemView.setOnClickListener {
+                    Navigation.findNavController(it).navigate(R.id.action_nav_fragmentListaPedidos_to_fragmentPedidoDetalhado)
+                }
             }
         }
     }
