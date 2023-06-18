@@ -100,7 +100,7 @@
             <EditText
                 android:id="@+id/perfil_endereco"
                 style="@style/perfil_edittext"
-                android:layout_width="150dp"
+                android:layout_width="300dp"
                 android:text="@string/endereco"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
@@ -108,28 +108,28 @@
             <EditText
                 android:id="@+id/pefil_num_endereco"
                 style="@style/perfil_edittext"
-                android:layout_width="50dp"
+                android:layout_width="55dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/num_endereco"
                 app:layout_constraintStart_toEndOf="@+id/perfil_endereco"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
 
-            <EditText
-                android:id="@+id/perfil_cep"
-                style="@style/perfil_edittext"
-                android:layout_width="150dp"
-                android:layout_marginStart="5dp"
-                android:text="@string/cep_endereco"
-                app:layout_constraintStart_toEndOf="@+id/pefil_num_endereco"
-                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
+<!--            <EditText-->
+<!--                android:id="@+id/perfil_cep"-->
+<!--                style="@style/perfil_edittext"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:text="@string/cep_endereco"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/pefil_num_endereco"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />-->
 
-            <EditText
-                android:id="@+id/pefil_complemento"
-                style="@style/perfil_edittext"
-                android:layout_width="match_parent"
-                android:text="@string/perfil_complemento"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/perfil_cep" />
+<!--            <EditText-->
+<!--                android:id="@+id/pefil_complemento"-->
+<!--                style="@style/perfil_edittext"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:text="@string/perfil_complemento"-->
+<!--                app:layout_constraintStart_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/perfil_cep" />-->
 
             <EditText
                 android:id="@+id/pedil_cidade"
@@ -137,7 +137,7 @@
                 android:layout_width="230dp"
                 android:text="@string/perfil_cidade"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pefil_complemento" />
+                app:layout_constraintTop_toBottomOf="@+id/pefil_num_endereco" />
 
             <EditText
                 android:id="@+id/pefil_bairro"
@@ -146,7 +146,7 @@
                 android:layout_marginStart="5dp"
                 android:text="@string/perfil_bairro"
                 app:layout_constraintStart_toEndOf="@+id/pedil_cidade"
-                app:layout_constraintTop_toBottomOf="@+id/pefil_complemento" />
+                app:layout_constraintTop_toBottomOf="@+id/pefil_num_endereco" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
