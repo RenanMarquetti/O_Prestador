@@ -1,21 +1,16 @@
 package com.example.oprestador.lnicial.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
 import com.example.oprestador.common.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
-import com.example.oprestador.user.view.UserActivity
+import com.example.oprestador.lnicial.Login
 
 
-class FragmentLogin : Fragment(R.layout.fragment_login) {
+class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
 
     private var binding: FragmentLoginBinding? = null
 
@@ -45,5 +40,25 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
     override fun onDestroy() {
         binding = null
         super.onDestroy()
+    }
+
+    override fun showProgeess(enabled: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun displayEmailFailure(emailError: Int?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun displayPasswordFailure(passwordError: Int?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onUserAuthenticated() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onUserUnauthorized() {
+        TODO("Not yet implemented")
     }
 }
