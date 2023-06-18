@@ -34,7 +34,6 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             }
 
             loginEditEmail.addTextChangedListener(watcher)
-
             loginEditPassword.addTextChangedListener(watcher)
         }
     }
