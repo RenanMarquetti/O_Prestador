@@ -25,11 +25,7 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
 
         with(binding!!) {
             btnAcessar.setOnClickListener {
-
                 Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
-
-//            val intent = Intent(context, UserActivity::class.java)
-//            startActivity(intent)
             }
 
             txtCadastro.setOnClickListener {
