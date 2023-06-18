@@ -58,18 +58,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/btn_acessar"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/borda_arredondada"
-        android:backgroundTint="@color/primaria_2"
-        android:text="@string/txt_acessar"
-        android:textColor="@color/white"
+    <com.example.oprestador.lnicial.view.LoadingBotton
+        android:id="@+id/login_loading_button"
+        app:text="@string/txt_acessar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_edit_password_input"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_width="320dp"/>
 
     <TextView
         android:id="@+id/txtCadastro"
@@ -81,7 +78,7 @@
         android:textSize="9pt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_acessar"
+        app:layout_constraintTop_toBottomOf="@+id/login_loading_button"
         android:layout_marginTop="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

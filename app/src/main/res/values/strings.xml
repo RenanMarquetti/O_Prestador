@@ -10,7 +10,7 @@
     <string name="hint_senha_cadastro">Senha</string>
     <string name="hint_repeticao_senha_cadastro">Repetir Senha</string>
     <string name="txt_title_divisor">Você quer procurar um prestador ou cadastrar seus serviços?</string>
-    <string name="txt_divisor_pedir_servico">Prcurar um Prestador</string>
+    <string name="txt_divisor_pedir_servico">Procurar um Prestador</string>
     <string name="txt_divisor_cadastrar_servico">Cadastrar Meus Serviços</string>
     <string name="txt_menu_lista_Pedidos">Pedidos</string>
     <string name="txt_menu_meus_pedidos">Meus Pedidos</string>

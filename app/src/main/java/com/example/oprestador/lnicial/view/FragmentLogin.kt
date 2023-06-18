@@ -1,6 +1,8 @@
 package com.example.oprestador.lnicial.view
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -20,8 +22,16 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
         binding = FragmentLoginBinding.bind(view)
 
         with(binding!!) {
-            btnAcessar.setOnClickListener {
-                Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
+            loginLoadingButton.setOnClickListener {
+                loginLoadingButton.showProgressBar(true)
+                loginEditEmailInput.error = "verificando Login"
+                loginEditPasswordInput.error = "verificando Senha"
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    loginLoadingButton.showProgressBar(false)
+                    Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
+                }, 2000)
+
             }
 
             txtCadastro.setOnClickListener {
@@ -34,7 +44,7 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
     }
 
     private val watcher = TxtWatcher{
-        binding!!.btnAcessar.isEnabled = it.isNotEmpty()
+        binding!!.loginLoadingButton.isEnabled = it.isNotEmpty()
     }
 
     override fun onDestroy() {

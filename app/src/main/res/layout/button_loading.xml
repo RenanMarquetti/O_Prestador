@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borda_arredondada"
+        android:backgroundTint="@color/primaria_2"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"/>
+    
+    <ProgressBar
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="2dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"
+        android:indeterminateTint="@color/white"
+        tools:visibility="visible"/>
+
+</merge>
