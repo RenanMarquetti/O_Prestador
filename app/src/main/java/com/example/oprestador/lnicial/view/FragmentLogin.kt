@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
+import com.example.oprestador.common.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.user.view.UserActivity
 
@@ -31,7 +32,15 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             txtCadastro.setOnClickListener {
                 Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentCadastro)
             }
+
+            loginEditEmail.addTextChangedListener(watcher)
+
+            loginEditPassword.addTextChangedListener(watcher)
         }
+    }
+
+    private val watcher = TxtWatcher{
+        binding!!.btnAcessar.isEnabled = it.isNotEmpty()
     }
 
     override fun onDestroy() {

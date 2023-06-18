@@ -38,6 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nome_app" >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_email"
             style="@style/editText_bordas_redondas"
             android:hint="@string/hint_login" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_edit_email_input" >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_password"
             style="@style/editText_bordas_redondas"
             android:hint="@string/hint_senha"
             android:inputType="textPassword"/>
