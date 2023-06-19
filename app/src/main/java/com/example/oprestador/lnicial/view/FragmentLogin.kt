@@ -11,32 +11,30 @@ import com.example.oprestador.R
 import com.example.oprestador.common.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.lnicial.Login
+import com.example.oprestador.lnicial.presentation.LoginPresenter
 
 
 class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
 
     private var binding: FragmentLoginBinding? = null
-
     private lateinit var presenter: Login.Presenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentLoginBinding.bind(view)
+        presenter = LoginPresenter(this)
 
         with(binding!!) {
             loginLoadingButton.setOnClickListener {
-                loginLoadingButton.showProgressBar(true)
-                loginEditEmailInput.error = "verificando Login"
-                loginEditPasswordInput.error = "verificando Senha"
+                showProgeess(true)
 
                 presenter.login(loginEditEmail.text.toString(),loginEditPassword.text.toString())
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    loginLoadingButton.showProgressBar(false)
-                    Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
-                }, 2000)
-
+//                Handler(Looper.getMainLooper()).postDelayed({
+//                    loginLoadingButton.showProgressBar(false)
+//                    Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
+//                }, 2000)
             }
 
             txtCadastro.setOnClickListener {
