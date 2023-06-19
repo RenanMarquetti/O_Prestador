@@ -17,6 +17,8 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
 
     private var binding: FragmentLoginBinding? = null
 
+    private lateinit var presenter: Login.Presenter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -27,6 +29,8 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
                 loginLoadingButton.showProgressBar(true)
                 loginEditEmailInput.error = "verificando Login"
                 loginEditPasswordInput.error = "verificando Senha"
+
+                presenter.login(loginEditEmail.text.toString(),loginEditPassword.text.toString())
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     loginLoadingButton.showProgressBar(false)
