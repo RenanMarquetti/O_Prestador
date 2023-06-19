@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
@@ -53,22 +54,22 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
     }
 
     override fun showProgeess(enabled: Boolean) {
-        TODO("Not yet implemented")
+        binding!!.loginLoadingButton.showProgressBar(enabled)
     }
 
     override fun displayEmailFailure(emailError: Int?) {
-        TODO("Not yet implemented")
+        binding!!.loginEditEmailInput.error = emailError?.let { getString(it) }
     }
 
     override fun displayPasswordFailure(passwordError: Int?) {
-        TODO("Not yet implemented")
+        binding!!.loginEditPasswordInput.error = passwordError?.let { getString(it) }
     }
 
     override fun onUserAuthenticated() {
-        TODO("Not yet implemented")
+        Navigation.findNavController(requireView()).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
     }
 
     override fun onUserUnauthorized() {
-        TODO("Not yet implemented")
+        Toast.makeText(requireContext(),"Usuario não encontrado",Toast.LENGTH_LONG).show()
     }
 }
