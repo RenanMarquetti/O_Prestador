@@ -4,22 +4,26 @@ import android.util.Patterns
 import com.example.oprestador.R
 import com.example.oprestador.lnicial.Login
 
-class LoginPresenter(private val view: Login.View): Login.Presenter {
+class LoginPresenter(private var view: Login.View?): Login.Presenter {
 
     override fun login(loginEmail: String, password: String) {
 
         if(!Patterns.EMAIL_ADDRESS.matcher(loginEmail).matches()) {
-            view.displayEmailFailure(R.string.invalid_email)
+            view?.displayEmailFailure(R.string.invalid_email)
         } else {
-            view.displayEmailFailure(null)
+            view?.displayEmailFailure(null)
         }
 
         if(password.length < 8) {
-            view.displayPasswordFailure(R.string.invalid_password)
+            view?.displayPasswordFailure(R.string.invalid_password)
         } else {
-           view.displayPasswordFailure(null)
+           view?.displayPasswordFailure(null)
         }
 
-        view.showProgeess(false)
+        view?.showProgeess(false)
+    }
+
+    override fun onDestroy() {
+        view = null;
     }
 }

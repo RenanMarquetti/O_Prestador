@@ -1,8 +1,10 @@
 package com.example.oprestador.lnicial
 
+import com.example.oprestador.common.base.BasePresenter
+
 interface Login {
 
-    interface Presenter {
+    interface Presenter : BasePresenter {
         fun login(loginEmail: String, password: String)
     }
 
