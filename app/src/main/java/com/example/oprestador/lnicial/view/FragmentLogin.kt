@@ -1,14 +1,12 @@
 package com.example.oprestador.lnicial.view
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
-import com.example.oprestador.common.TxtWatcher
+import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.lnicial.Login
 import com.example.oprestador.lnicial.presentation.LoginPresenter
@@ -30,11 +28,6 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
                 showProgeess(true)
 
                 presenter.login(loginEditEmail.text.toString(),loginEditPassword.text.toString())
-
-//                Handler(Looper.getMainLooper()).postDelayed({
-//                    loginLoadingButton.showProgressBar(false)
-//                    Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
-//                }, 2000)
             }
 
             txtCadastro.setOnClickListener {
@@ -42,15 +35,24 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
             }
 
             loginEditEmail.addTextChangedListener(watcher)
+            loginEditEmail.addTextChangedListener(TxtWatcher {
+                displayEmailFailure(null)
+            })
+
             loginEditPassword.addTextChangedListener(watcher)
+            loginEditPassword.addTextChangedListener(TxtWatcher {
+                displayPasswordFailure(null)
+            })
         }
     }
 
     private val watcher = TxtWatcher{
-        binding!!.loginLoadingButton.isEnabled = it.isNotEmpty()
+        binding!!.loginLoadingButton.isEnabled = binding!!.loginEditEmail.text.toString().isNotEmpty()
+                && binding!!.loginEditPassword.text.toString().isNotEmpty()
     }
 
     override fun onDestroy() {
+        presenter.onDestroy()
         binding = null
         super.onDestroy()
     }
@@ -71,7 +73,7 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
         Navigation.findNavController(requireView()).navigate(R.id.action_fragmentLogin_to_fragmentDivisor)
     }
 
-    override fun onUserUnauthorized() {
-        Toast.makeText(requireContext(),"Usuario não encontrado",Toast.LENGTH_LONG).show()
+    override fun onUserUnauthorized(message: String) {
+        Toast.makeText(requireContext(),message,Toast.LENGTH_LONG).show()
     }
 }
