@@ -17,7 +17,7 @@ import com.example.oprestador.lnicial.presentation.LoginPresenter
 class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
 
     private var binding: FragmentLoginBinding? = null
-    private lateinit var presenter: Login.Presenter
+    override lateinit var presenter: Login.Presenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
