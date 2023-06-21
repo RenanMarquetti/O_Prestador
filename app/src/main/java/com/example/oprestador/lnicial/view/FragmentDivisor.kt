@@ -29,17 +29,18 @@ class FragmentDivisor : Fragment(R.layout.fragment_divisor) {
             }
 
             btnDivisorPedirServico.setOnClickListener {
-
-                val intent = Intent(context, ClienteActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(context, ClienteActivity::class.java))
             }
 
             btnDivisorCadastrarServico.setOnClickListener {
-
-                val intent = Intent(context,UserActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(context,UserActivity::class.java))
             }
         }
+    }
+
+    override fun startActivity(intent: Intent?) {
+        intent?.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        super.startActivity(intent)
     }
 
     override fun onDestroy() {

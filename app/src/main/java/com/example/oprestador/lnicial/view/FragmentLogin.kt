@@ -9,6 +9,8 @@ import com.example.oprestador.R
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.lnicial.Login
+import com.example.oprestador.lnicial.data.FakeDataSource
+import com.example.oprestador.lnicial.data.LoginRepository
 import com.example.oprestador.lnicial.presentation.LoginPresenter
 
 
@@ -21,12 +23,12 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentLoginBinding.bind(view)
-        presenter = LoginPresenter(this)
+
+        val repository = LoginRepository(FakeDataSource())
+        presenter = LoginPresenter(this,repository)
 
         with(binding!!) {
             loginLoadingButton.setOnClickListener {
-                showProgeess(true)
-
                 presenter.login(loginEditEmail.text.toString(),loginEditPassword.text.toString())
             }
 
