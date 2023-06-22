@@ -21,7 +21,7 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro) {
 
         with(binding!!) {
 
-            btnCadastro.setOnClickListener {
+            cadastroBtnCadastrar.setOnClickListener {
                 Navigation.findNavController(view).navigate(R.id.action_fragmentCadastro_to_fragmentDivisor)
             }
 

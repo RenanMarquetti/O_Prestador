@@ -24,7 +24,7 @@ class FragmentDivisor : Fragment(R.layout.fragment_divisor) {
         binding = FragmentDivisorBinding.bind(view)
 
         with(binding!!) {
-            logo.setOnClickListener {
+            divisorImgLogo.setOnClickListener {
                 Navigation.findNavController(view).navigate(R.id.action_fragmentDivisor_to_fragmentLogin)
             }
 
