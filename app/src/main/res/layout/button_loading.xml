@@ -7,7 +7,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borda_arredondada"
-        android:backgroundTint="@color/primaria_2"
+        android:backgroundTint="@color/button_background"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"/>
     
