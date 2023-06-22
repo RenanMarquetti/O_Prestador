@@ -2,14 +2,25 @@ package com.example.oprestador.lnicial.data
 
 import android.os.Looper
 import android.os.Handler
+import com.example.oprestador.common.model.Database
 
 
 class FakeDataSource : LoginDataSource {
     override fun login(email: String, password: String, callback: LoginCallback) {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            if(email == "a@a.com" && password == "12345678") callback.onSuccess()
-            else callback.onFailure("Usuário não encontrado")
+            val userAuth = Database.usersAuth.firstOrNull{
+                email == it.email
+            }
+
+            when{
+                userAuth == null -> callback.onFailure("Usuário não encontrado")
+                userAuth.password != password -> callback.onFailure("Senha Incorreta")
+                else -> {
+                    Database.sessionAuth = userAuth
+                    callback.onSuccess(userAuth)
+                }
+            }
 
             callback.onComplete()
 

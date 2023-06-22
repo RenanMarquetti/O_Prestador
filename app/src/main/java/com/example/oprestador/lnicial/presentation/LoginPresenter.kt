@@ -2,6 +2,7 @@ package com.example.oprestador.lnicial.presentation
 
 import android.util.Patterns
 import com.example.oprestador.R
+import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.lnicial.Login
 import com.example.oprestador.lnicial.data.LoginCallback
 import com.example.oprestador.lnicial.data.LoginRepository
@@ -29,7 +30,7 @@ class LoginPresenter(private var view: Login.View?, private val repository: Logi
             view?.showProgeess(true)
 
             repository.login(loginEmail,password, object : LoginCallback {
-                override fun onSuccess() {
+                override fun onSuccess(userAuth: UserAuth) {
                     view?.onUserAuthenticated()
                 }
 
