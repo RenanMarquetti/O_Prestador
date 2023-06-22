@@ -19,7 +19,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/background_edit_text_perfil</item>
-        <item name="android:hint">@string/perfil_rua</item>
         <item name="android:textColor">@color/primaria_2</item>
         <item name="android:textColorHint">@color/primaria_2</item>
     </style>

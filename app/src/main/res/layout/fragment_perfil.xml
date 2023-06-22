@@ -59,7 +59,7 @@
                 android:id="@+id/perfil_nome_completo"
                 style="@style/perfil_edittext"
                 android:layout_width="match_parent"
-                android:text="@string/perfil_nome_completo"
+                android:hint="@string/perfil_nome_completo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_dados_pessoais" />
 
@@ -67,7 +67,7 @@
                 android:id="@+id/pefil_ddd"
                 style="@style/perfil_edittext"
                 android:layout_width="60dp"
-                android:text="@string/ddd_telefone"
+                android:hint="@string/ddd_telefone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/perfil_nome_completo" />
 
@@ -76,7 +76,7 @@
                 style="@style/perfil_edittext"
                 android:layout_width="295dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/telefone"
+                android:hint="@string/telefone"
                 app:layout_constraintStart_toEndOf="@+id/pefil_ddd"
                 app:layout_constraintTop_toBottomOf="@+id/perfil_nome_completo" />
 
@@ -101,7 +101,7 @@
                 android:id="@+id/perfil_endereco"
                 style="@style/perfil_edittext"
                 android:layout_width="300dp"
-                android:text="@string/endereco"
+                android:hint="@string/endereco"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
 
@@ -110,32 +110,16 @@
                 style="@style/perfil_edittext"
                 android:layout_width="55dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/num_endereco"
+                android:hint="@string/num_endereco"
                 app:layout_constraintStart_toEndOf="@+id/perfil_endereco"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/perfil_cep"-->
-<!--                style="@style/perfil_edittext"-->
-<!--                android:layout_width="150dp"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                android:text="@string/cep_endereco"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/pefil_num_endereco"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/txt_title_endereco" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/pefil_complemento"-->
-<!--                style="@style/perfil_edittext"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:text="@string/perfil_complemento"-->
-<!--                app:layout_constraintStart_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/perfil_cep" />-->
 
             <EditText
                 android:id="@+id/pedil_cidade"
                 style="@style/perfil_edittext"
                 android:layout_width="230dp"
-                android:text="@string/perfil_cidade"
+                android:hint="@string/perfil_cidade"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pefil_num_endereco" />
 
@@ -144,7 +128,7 @@
                 style="@style/perfil_edittext"
                 android:layout_width="125dp"
                 android:layout_marginStart="5dp"
-                android:text="@string/perfil_bairro"
+                android:hint="@string/perfil_bairro"
                 app:layout_constraintStart_toEndOf="@+id/pedil_cidade"
                 app:layout_constraintTop_toBottomOf="@+id/pefil_num_endereco" />
 
