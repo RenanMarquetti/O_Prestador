@@ -1,12 +1,15 @@
 package com.example.oprestador.lnicial.view
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
+import androidx.annotation.ColorInt
 import com.example.oprestador.R
 
 class LoadingBotton: FrameLayout {
@@ -43,6 +46,7 @@ class LoadingBotton: FrameLayout {
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
+
         button.isEnabled = enabled
     }
 

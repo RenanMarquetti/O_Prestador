@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
+import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.lnicial.Login
@@ -24,8 +25,7 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
 
         binding = FragmentLoginBinding.bind(view)
 
-        val repository = LoginRepository(FakeDataSource())
-        presenter = LoginPresenter(this,repository)
+        presenter = LoginPresenter(this,DependecInjector.loginRepository())
 
         with(binding!!) {
             loginLoadingButton.setOnClickListener {
