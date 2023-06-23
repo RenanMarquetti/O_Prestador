@@ -67,14 +67,11 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.example.oprestador.lnicial.view.LoadingBotton
         android:id="@+id/cadastro_btn_cadastrar"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/borda_arredondada"
-        android:backgroundTint="@color/button_background"
         android:text="@string/txt_cadastrar"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastro_edit_rept_password_input"

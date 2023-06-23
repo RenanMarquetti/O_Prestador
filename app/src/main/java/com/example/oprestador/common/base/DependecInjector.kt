@@ -7,4 +7,6 @@ object DependecInjector {
     fun loginRepository() : LoginRepository {
         return LoginRepository(FakeDataSource())
     }
+
+    //fun cadastroRepository() = CadastroRepository
 }

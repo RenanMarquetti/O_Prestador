@@ -7,7 +7,7 @@ import com.example.oprestador.lnicial.Login
 import com.example.oprestador.lnicial.data.LoginCallback
 import com.example.oprestador.lnicial.data.LoginRepository
 
-class LoginPresenter(private var view: Login.View?, private val repository: LoginRepository): Login.Presenter {
+class LoginPresenter(private var view: Login.View?, private val repository: LoginRepository) : Login.Presenter {
 
     override fun login(loginEmail: String, password: String) {
 
