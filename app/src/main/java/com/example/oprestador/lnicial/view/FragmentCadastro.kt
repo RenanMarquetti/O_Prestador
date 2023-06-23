@@ -1,18 +1,14 @@
 package com.example.oprestador.lnicial.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
+import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentCadastroBinding
-import com.example.oprestador.lnicial.Login
 import com.example.oprestador.lnicial.presentation.CadastroPresentation
 
 class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
@@ -24,7 +20,7 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentCadastroBinding.bind(view)
-        presenter = CadastroPresentation(this)
+        presenter = CadastroPresentation(this, DependecInjector.cadastroRepository())
 
         with(binding!!) {
 
@@ -44,7 +40,7 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
             })
 
             cadastroBtnCadastrar.setOnClickListener {
-                presenter.createUser(cadastroEditEmail.text.toString(), cadastroEditPassword.text.toString(), cadastroEditReptPassword.text.toString())
+                presenter.create(cadastroEditEmail.text.toString(), cadastroEditPassword.text.toString(), cadastroEditReptPassword.text.toString())
             }
 
         }

@@ -7,7 +7,7 @@ import com.example.oprestador.common.model.UserAuth
 interface Cadastro {
 
     interface Presenter : BasePresenter {
-        fun createUser(email: String, password: String, repetPassword: String)
+        fun create(email: String, password: String, repetPassword: String)
     }
 
     interface View : BaseView<Presenter> {

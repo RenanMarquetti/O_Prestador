@@ -71,7 +71,7 @@
         android:id="@+id/cadastro_btn_cadastrar"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="@string/txt_cadastrar"
+        app:text="@string/txt_cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastro_edit_rept_password_input"

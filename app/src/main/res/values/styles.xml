@@ -63,4 +63,5 @@
         <item name="android:background">@drawable/background_edit_text_perfil</item>
         <item name="android:textColorHint">@color/primaria_2</item>
     </style>
+
 </resources>

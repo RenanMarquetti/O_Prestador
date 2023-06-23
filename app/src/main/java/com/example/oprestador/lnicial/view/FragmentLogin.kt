@@ -10,8 +10,6 @@ import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentLoginBinding
 import com.example.oprestador.lnicial.Login
-import com.example.oprestador.lnicial.data.FakeDataSource
-import com.example.oprestador.lnicial.data.LoginRepository
 import com.example.oprestador.lnicial.presentation.LoginPresenter
 
 
