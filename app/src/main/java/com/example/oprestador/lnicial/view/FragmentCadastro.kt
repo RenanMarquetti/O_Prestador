@@ -2,6 +2,7 @@ package com.example.oprestador.lnicial.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
@@ -71,6 +72,10 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
 
     override fun onUserCreated(user: UserAuth) {
         Navigation.findNavController(requireView()).navigate(R.id.action_fragmentCadastro_to_fragmentDivisor)
+    }
+
+    override fun onUserUnCreated(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {

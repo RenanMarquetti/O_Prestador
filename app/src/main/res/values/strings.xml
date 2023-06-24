@@ -46,4 +46,5 @@
     <string name="enviar">Enviar</string>
     <string name="invalid_email">Este Email é invalido!</string>
     <string name="invalid_password">A senha deve ter pelo menos 8 caracteres</string>
+    <string name="invalid_repet_password">as senhas são diferentes</string>
 </resources>
