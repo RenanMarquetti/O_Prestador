@@ -136,12 +136,12 @@
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/checkbox_concentimento"
+        android:id="@+id/perfil_checkbox_concentimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:buttonTint="@color/green"
-        android:checked="true"
+        android:checked="false"
         android:text="@string/consentimento_termos_de_uso"
         android:textColor="@color/primaria_2"
         android:textSize="18sp"
@@ -149,18 +149,15 @@
         app:layout_constraintStart_toStartOf="@+id/input_dados_perfil"
         app:layout_constraintTop_toBottomOf="@+id/input_dados_perfil" />
 
-    <Button
-        android:id="@+id/btn_perfil"
+    <com.example.oprestador.lnicial.view.LoadingBotton
+        android:id="@+id/perfil_loading_button"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/borda_arredondada"
-        app:backgroundTint="@color/white"
-        android:text="@string/txt_cadastrar"
-        android:textColor="@color/primaria_2"
+        app:text="@string/txt_cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_concentimento" />
+        app:layout_constraintTop_toBottomOf="@+id/perfil_checkbox_concentimento" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

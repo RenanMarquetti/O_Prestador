@@ -10,6 +10,7 @@ import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentCadastroBinding
+import com.example.oprestador.lnicial.Cadastro
 import com.example.oprestador.lnicial.presentation.CadastroPresentation
 
 class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {

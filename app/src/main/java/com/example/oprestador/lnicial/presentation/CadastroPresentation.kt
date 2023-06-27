@@ -1,12 +1,11 @@
 package com.example.oprestador.lnicial.presentation
 
-import android.util.Log
 import android.util.Patterns
 import com.example.oprestador.R
 import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.lnicial.data.CadastroCallback
 import com.example.oprestador.lnicial.data.CadastroRepository
-import com.example.oprestador.lnicial.view.Cadastro
+import com.example.oprestador.lnicial.Cadastro
 
 class CadastroPresentation(private var view: Cadastro.View?, private val repository: CadastroRepository) : Cadastro.Presenter {
 
@@ -26,8 +25,6 @@ class CadastroPresentation(private var view: Cadastro.View?, private val reposit
         else view?.displayRepetPasswordFailure(null)
 
         if(isEmailValid && isPasswordValid && isRepetPassoreValid) {
-
-            view?.showProgeess(true)
 
             repository.create(loginEmail, password, object : CadastroCallback {
                 override fun onSuccess(userAuth: UserAuth) {

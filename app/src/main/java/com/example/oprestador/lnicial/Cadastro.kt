@@ -1,4 +1,4 @@
-package com.example.oprestador.lnicial.view
+package com.example.oprestador.lnicial
 
 import com.example.oprestador.common.base.BasePresenter
 import com.example.oprestador.common.base.BaseView
