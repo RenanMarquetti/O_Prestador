@@ -27,7 +27,6 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
 
         with(binding!!) {
 
-
             perfilCheckboxConcentimento.setOnClickListener {
                 perfilLoadingButtonSalvar.isEnabled = perfilCheckboxConcentimento.isChecked
             }
@@ -41,7 +40,14 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
 
     private fun popularDados() {
         with(Database.sessionProfile!!) {
-            //binding!!.perfilEditEndereco.text =
+            binding!!.perfilEditNomeCompleto.setText(name)
+            binding!!.perfilEditDdd.setText(telefone.ddd)
+            binding!!.perfilEditTelefone.setText(telefone.telefone)
+            binding!!.perfilEditEndereco.setText(endereco.street)
+            binding!!.perfilEditNumEndereco.setText(endereco.numEndereco)
+            binding!!.perfilEditCidade.setText(endereco.city)
+            binding!!.perfilEditBairro.setText(endereco.neighborhood)
+
         }
     }
 

@@ -1,8 +1,8 @@
 package com.example.oprestador.common.model
 
 data class Address(
-    val endereco: String,
+    val street: String,
     val numEndereco: String,
-    val cidade: String,
-    val bairro: String
+    val city: String,
+    val neighborhood: String
 )

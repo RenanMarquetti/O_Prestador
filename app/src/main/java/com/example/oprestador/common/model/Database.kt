@@ -23,14 +23,14 @@ object Database {
     }
 
     fun iniciarUser(email: String, password: String, name: String, ddd: String, numFone: String,
-                    address: String, numAddress: String, cidade: String, bairro: String) {
+                    street: String, numAddress: String, cidade: String, bairro: String) {
 
 
         val uuid = UUID.randomUUID().toString()
 
         val auth = UserAuth(uuid, email, password)
         val fone = Fone(ddd, numFone)
-        val endereco = Address(address, numAddress, cidade, bairro)
+        val endereco = Address(street, numAddress, cidade, bairro)
 
         val userProfile = UserProfile(uuid, name, fone, endereco)
 
