@@ -2,6 +2,7 @@ package com.example.oprestador.user.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.oprestador.R
 import com.example.oprestador.common.base.DependecInjector
@@ -23,7 +24,7 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
         binding = FragmentPerfilBinding.bind(view)
         presenter = PerfilPresentation(this, DependecInjector.userRepository())
 
-        popularDados()
+        inserirDados()
 
         with(binding!!) {
 
@@ -38,7 +39,7 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
         }
     }
 
-    private fun popularDados() {
+    private fun inserirDados() {
         with(Database.sessionProfile!!) {
             binding!!.perfilEditNomeCompleto.setText(name)
             binding!!.perfilEditDdd.setText(telefone.ddd)
@@ -56,7 +57,7 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
     }
 
     override fun updateDone(profile: UserProfile) {
-
+        Toast.makeText(requireContext(), "Update de dados foi concluido", Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
