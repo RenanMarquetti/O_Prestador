@@ -11,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.oprestador.R
+import com.example.oprestador.common.model.Database
 import com.example.oprestador.databinding.ActivityUserBinding
 import com.google.android.material.navigation.NavigationView
 
@@ -24,8 +25,6 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityUserBinding.inflate(layoutInflater)
-
-        binding
 
         with(binding) {
 

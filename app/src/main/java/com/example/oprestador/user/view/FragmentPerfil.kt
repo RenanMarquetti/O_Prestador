@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.oprestador.R
 import com.example.oprestador.common.base.DependecInjector
+import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.UserProfile
 import com.example.oprestador.databinding.FragmentPerfilBinding
 import com.example.oprestador.user.Perfil
@@ -22,21 +23,30 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
         binding = FragmentPerfilBinding.bind(view)
         presenter = PerfilPresentation(this, DependecInjector.userRepository())
 
+        popularDados()
+
         with(binding!!) {
 
+
             perfilCheckboxConcentimento.setOnClickListener {
-                perfilLoadingButton.isEnabled = perfilCheckboxConcentimento.isChecked
+                perfilLoadingButtonSalvar.isEnabled = perfilCheckboxConcentimento.isChecked
             }
 
-            perfilLoadingButton.setOnClickListener {
+            perfilLoadingButtonSalvar.setOnClickListener {
                 presenter.updateProfile()
             }
 
         }
     }
 
+    private fun popularDados() {
+        with(Database.sessionProfile!!) {
+            //binding!!.perfilEditEndereco.text =
+        }
+    }
+
     override fun showProgess(enabled: Boolean) {
-        binding!!.perfilLoadingButton.showProgressBar(enabled)
+        binding!!.perfilLoadingButtonSalvar.showProgressBar(enabled)
     }
 
     override fun updateDone(profile: UserProfile) {
