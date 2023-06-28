@@ -33,7 +33,18 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
             }
 
             perfilLoadingButtonSalvar.setOnClickListener {
-                presenter.updateProfile()
+
+                val dados = object {
+                    val name = perfilEditNomeCompleto.text.toString()
+                    val ddd = perfilEditDdd.text.toString()
+                    val telefone = perfilEditTelefone.text.toString()
+                    val street = perfilEditEndereco.text.toString()
+                    val numStreet = perfilEditNumEndereco.text.toString()
+                    val city = perfilEditCidade.text.toString()
+                    val bairro = perfilEditBairro.text.toString()
+                }
+
+                presenter.updateProfile(dados)
             }
 
         }
@@ -58,6 +69,10 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
 
     override fun updateDone(profile: UserProfile) {
         Toast.makeText(requireContext(), "Update de dados foi concluido", Toast.LENGTH_LONG).show()
+    }
+
+    override fun updateFailure(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {

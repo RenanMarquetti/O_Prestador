@@ -6,16 +6,17 @@ import com.example.oprestador.user.data.UserRepository
 import com.example.oprestador.user.data.ProfileCallback
 
 class PerfilPresentation(private var view: Perfil.View?, private val repository: UserRepository) : Perfil.Presenter {
-    override fun updateProfile() {
-        // valida os metodos
+    override fun updateProfile(dados: Any) {
 
-        repository.update(object : ProfileCallback {
+        // valida os dados
+
+        repository.updateProfile(object : ProfileCallback {
             override fun onSuccess(profile: UserProfile) {
-
+                view?.updateDone(profile)
             }
 
             override fun onFailure(msg: String) {
-
+                view?.updateFailure(msg)
             }
 
             override fun onComplete() {
