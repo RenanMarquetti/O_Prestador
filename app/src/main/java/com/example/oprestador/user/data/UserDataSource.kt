@@ -1,5 +1,7 @@
 package com.example.oprestador.user.data
 
+import com.example.oprestador.user.presentation.DadosProfile
+
 interface UserDataSource {
-    fun updateProfile(callback: ProfileCallback)
+    fun updateProfile(dados: DadosProfile, callback: ProfileCallback)
 }

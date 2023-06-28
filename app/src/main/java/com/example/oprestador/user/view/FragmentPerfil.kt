@@ -10,6 +10,7 @@ import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.UserProfile
 import com.example.oprestador.databinding.FragmentPerfilBinding
 import com.example.oprestador.user.Perfil
+import com.example.oprestador.user.presentation.DadosProfile
 import com.example.oprestador.user.presentation.PerfilPresentation
 
 class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
@@ -34,14 +35,14 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
 
             perfilLoadingButtonSalvar.setOnClickListener {
 
-                val dados = object {
-                    val name = perfilEditNomeCompleto.text.toString()
-                    val ddd = perfilEditDdd.text.toString()
-                    val telefone = perfilEditTelefone.text.toString()
-                    val street = perfilEditEndereco.text.toString()
-                    val numStreet = perfilEditNumEndereco.text.toString()
-                    val city = perfilEditCidade.text.toString()
-                    val bairro = perfilEditBairro.text.toString()
+                val dados = object : DadosProfile {
+                    override val name = perfilEditNomeCompleto.text.toString()
+                    override val ddd = perfilEditDdd.text.toString()
+                    override val telefone = perfilEditTelefone.text.toString()
+                    override val street = perfilEditEndereco.text.toString()
+                    override val numStreet = perfilEditNumEndereco.text.toString()
+                    override val city = perfilEditCidade.text.toString()
+                    override val bairro = perfilEditBairro.text.toString()
                 }
 
                 presenter.updateProfile(dados)
@@ -72,6 +73,10 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
     }
 
     override fun updateFailure(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun inputError(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 

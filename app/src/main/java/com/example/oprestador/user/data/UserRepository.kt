@@ -1,8 +1,10 @@
 package com.example.oprestador.user.data
 
+import com.example.oprestador.user.presentation.DadosProfile
+
 class UserRepository(private val dataSource: UserDataSource) {
 
-    fun updateProfile(callback: ProfileCallback) {
-        dataSource.updateProfile(callback)
+    fun updateProfile(dados: DadosProfile, callback: ProfileCallback) {
+        dataSource.updateProfile(dados, callback)
     }
 }

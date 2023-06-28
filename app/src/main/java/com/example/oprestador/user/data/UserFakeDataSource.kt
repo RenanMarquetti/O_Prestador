@@ -1,9 +1,9 @@
 package com.example.oprestador.user.data
 
-import android.util.Log
+import com.example.oprestador.user.presentation.DadosProfile
 
 class UserFakeDataSource : UserDataSource {
-    override fun updateProfile(callback: ProfileCallback) {
+    override fun updateProfile(dados: DadosProfile, callback: ProfileCallback) {
 
 
 

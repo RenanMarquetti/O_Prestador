@@ -6,24 +6,39 @@ import com.example.oprestador.user.data.UserRepository
 import com.example.oprestador.user.data.ProfileCallback
 
 class PerfilPresentation(private var view: Perfil.View?, private val repository: UserRepository) : Perfil.Presenter {
-    override fun updateProfile(dados: Any) {
+    override fun updateProfile(dados: DadosProfile) {
 
-        // valida os dados
+        var isDadosValid = true
 
-        repository.updateProfile(object : ProfileCallback {
-            override fun onSuccess(profile: UserProfile) {
-                view?.updateDone(profile)
-            }
+        with(dados) {
+            if(name.isEmpty()) isDadosValid = false
+            if(ddd.isEmpty()) isDadosValid = false
+            if(telefone.isEmpty()) isDadosValid = false
+            if(street.isEmpty()) isDadosValid = false
+            if(numStreet.isEmpty()) isDadosValid = false
+            if(city.isEmpty()) isDadosValid = false
+            if(bairro.isEmpty()) isDadosValid = false
+        }
 
-            override fun onFailure(msg: String) {
-                view?.updateFailure(msg)
-            }
+        if(isDadosValid) {
 
-            override fun onComplete() {
-                view?.showProgess(false)
-            }
+            repository.updateProfile(dados,  object : ProfileCallback {
+                override fun onSuccess(profile: UserProfile) {
+                    view?.updateDone(profile)
+                }
 
-        })
+                override fun onFailure(msg: String) {
+                    view?.updateFailure(msg)
+                }
+
+                override fun onComplete() {
+                    view?.showProgess(false)
+                }
+
+            })
+        } else {
+            view?.inputError("Algun dado está vazio")
+        }
     }
 
     override fun onDestroy() {
