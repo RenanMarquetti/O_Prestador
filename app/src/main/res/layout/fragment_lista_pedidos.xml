@@ -35,7 +35,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/moedas"
+        android:id="@+id/lista_Pedidos_layout_moedas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_moedas"
@@ -52,6 +52,7 @@
             android:src="@drawable/libongo_coin_1"/>
 
         <TextView
+            android:id="@+id/lista_Pedidos_txt_qtd_moedas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1000"
@@ -80,7 +81,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moedas" />
+        app:layout_constraintTop_toBottomOf="@+id/lista_Pedidos_layout_moedas" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaPedidos_rv_pedidos"

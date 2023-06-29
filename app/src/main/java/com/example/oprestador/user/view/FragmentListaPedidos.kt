@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
+import com.example.oprestador.common.model.Database
 import com.example.oprestador.databinding.FragmentListaPedidosBinding
 
 class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
@@ -22,6 +23,8 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
         binding = FragmentListaPedidosBinding.bind(view)
 
         with(binding!!) {
+
+            listaPedidosTxtQtdMoedas.text = Database.sessionProfile!!.moedas.toString()
 
             listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
             listaPedidosRvPedidos.adapter = ListPedidosAdapter()
