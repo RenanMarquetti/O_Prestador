@@ -1,6 +1,6 @@
 package com.example.oprestador.common.model
 
 data class Fone(
-    val ddd: String,
-    val telefone: String,
+    var ddd: String,
+    var telefone: String,
 )
