@@ -1,11 +1,13 @@
 package com.example.oprestador.common.model
 
+import java.util.Date
 import java.util.UUID
 
 object Database {
 
     val usersAuth = hashSetOf<UserAuth>()
-    val usersProfile= hashSetOf<UserProfile>()
+    val usersProfile = hashSetOf<UserProfile>()
+    val pedidosList = hashSetOf<Pedido>()
 
     var sessionAuth : UserAuth? = null
     var sessionProfile: UserProfile? = null
@@ -17,8 +19,20 @@ object Database {
         return newUser
     }
 
+    fun addPedido(titulo: String, nomeCliente: String, descricao: String, local: Address, prazo: Date, preco: Int) {
+
+        val pedido = Pedido(UUID.randomUUID().toString(), nomeCliente, titulo, descricao, local, prazo, preco)
+        pedidosList.add(pedido)
+    }
+
     init {
+
         iniciarUser("renan@gmail.com","12345678", "Renan Marquetti",5000, "42", "988639349", "Rua Rosa Schoemberger", "523", "Ponta Grossa", "Contorno")
+
+        addPedido("Teste Título 1", "Renan Marquetti", "Teste Descrição 1", Address("Rua do Fulano", "123", "Ponta Grossa", "Contorno"), Date(), 420)
+        addPedido("Teste Título 2", "Fulano", "Teste Descrição 2", Address("Rua do Beltrano", "321", "Ponta Grossa", "Contorno"), Date(), 236)
+        addPedido("Teste Título 3", "Ciclano", "Teste Descrição 3", Address("Rua Tal", "234", "Ponta Grossa", "Contorno"), Date(), 142)
+        addPedido("Teste Título 4", "Beltrano", "Teste Descrição 4", Address("Rua do morador", "432", "Ponta Grossa", "Contorno"), Date(), 371)
 
     }
 
@@ -31,8 +45,9 @@ object Database {
         val auth = UserAuth(uuid, email, password)
         val fone = Fone(ddd, numFone)
         val endereco = Address(street, numAddress, cidade, bairro)
+        val listPedidos = hashSetOf<Pedido>()
 
-        val userProfile = UserProfile(uuid, name, moedas, fone, endereco)
+        val userProfile = UserProfile(uuid, name, moedas, fone, endereco, listPedidos)
 
         usersAuth.add(auth)
         usersProfile.add(userProfile)

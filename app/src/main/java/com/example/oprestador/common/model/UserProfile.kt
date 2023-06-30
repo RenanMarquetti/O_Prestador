@@ -5,5 +5,6 @@ data class UserProfile(
     var name: String,
     var moedas: Int,
     val telefone: Fone,
-    val endereco: Address
+    val endereco: Address,
+    val listPedidos: HashSet<Pedido>
 )

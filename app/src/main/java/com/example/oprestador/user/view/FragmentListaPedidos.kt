@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
 import com.example.oprestador.common.model.Database
+import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentListaPedidosBinding
+import com.example.oprestador.databinding.LayoutPedidosResumidoBinding
 
 class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
@@ -38,6 +40,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
     }
 
     private class ListPedidosAdapter : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
+        private val interatorPedidos = Database.pedidosList.iterator()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
@@ -46,19 +49,25 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
         }
 
         override fun getItemCount(): Int {
-            return 10
+            return Database.pedidosList.size
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {
-            holder.bind(position)
+            holder.bind(position, interatorPedidos.next())
         }
 
         private class ListPedidosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(posi: Int) {
-                itemView.findViewById<TextView>(R.id.layoutPedidoRedumidos_txt_titulo).setText("Titulo ${posi+1}")
-                itemView.findViewById<TextView>(R.id.layoutPedidoRedumidostxt_cliente).setText("Nome Cliente ${posi+1}")
-                itemView.findViewById<TextView>(R.id.layoutPedidoRedumidos_txt_local).setText("Local ${posi+1}")
+
+            fun bind(posi: Int, pedido: Pedido) {
+
+                val binding: LayoutPedidosResumidoBinding = LayoutPedidosResumidoBinding.bind(itemView)
+                with(binding) {
+                    layoutPedidoRedumidosTxtTitulo.text = pedido.titulo
+                    layoutPedidoRedumidosTxtLocal.text = "${pedido.endereco.street} N°${pedido.endereco.numEndereco}"
+                    layoutPedidoRedumidostxtCliente.text = pedido.nomeCliente
+                }
+
                 itemView.setOnClickListener {
                     Navigation.findNavController(it).navigate(R.id.action_nav_fragmentListaPedidos_to_fragmentPedidoDetalhado)
                 }
