@@ -2,6 +2,7 @@ package com.example.oprestador.user.view
 
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -11,15 +12,16 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.oprestador.R
-import com.example.oprestador.common.model.Database
+import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.ActivityUserBinding
-import com.google.android.material.navigation.NavigationView
+import com.example.oprestador.user.FragmentAttachListener
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(), FragmentAttachListener {
 
     private lateinit var appBarConfiguration : AppBarConfiguration
     private lateinit var binding: ActivityUserBinding
     private lateinit var navControler: NavController
+    private lateinit var pedido: Pedido
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,4 +53,7 @@ class UserActivity : AppCompatActivity() {
         return navControler.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    override fun goToPedido(pedido: Pedido) {
+        this.pedido = pedido
+    }
 }

@@ -1,10 +1,10 @@
 package com.example.oprestador.user.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,11 +14,12 @@ import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentListaPedidosBinding
 import com.example.oprestador.databinding.LayoutPedidosResumidoBinding
+import com.example.oprestador.user.FragmentAttachListener
 
 class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
     private var binding: FragmentListaPedidosBinding? = null
-
+    private var fragmentAttachListener: FragmentAttachListener? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,15 +34,20 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
         }
 
     }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is FragmentAttachListener) fragmentAttachListener = context
+    }
 
     override fun onDestroy() {
         binding = null
+        fragmentAttachListener = null
         super.onDestroy()
     }
 
     private class ListPedidosAdapter : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
         private val interatorPedidos = Database.pedidosList.iterator()
-
+        //val attach = fragmentAttachListener
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.layout_pedidos_resumido,parent,false)
@@ -58,7 +64,6 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
         private class ListPedidosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
             fun bind(posi: Int, pedido: Pedido) {
 
                 val binding: LayoutPedidosResumidoBinding = LayoutPedidosResumidoBinding.bind(itemView)
@@ -69,6 +74,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
                 }
 
                 itemView.setOnClickListener {
+
                     Navigation.findNavController(it).navigate(R.id.action_nav_fragmentListaPedidos_to_fragmentPedidoDetalhado)
                 }
             }
