@@ -19,19 +19,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/pedidoDetalhado_txt_titulo"
             style="@style/pedidoDetalhado_textView"
             android:text="Título" />
 
         <TextView
+            android:id="@+id/pedidoDetalhado_txt_descricao"
             style="@style/pedidoDetalhado_textView"
             android:height="250dp"
             android:text="Descrição" />
 
         <TextView
+            android:id="@+id/pedidoDetalhado_txt_local"
             style="@style/pedidoDetalhado_textView"
             android:text="Local" />
 
         <TextView
+            android:id="@+id/pedidoDetalhado_txt_prazo"
             style="@style/pedidoDetalhado_textView"
             android:text="Prazo" />
 
@@ -58,11 +62,11 @@
                 android:layout_height="28dp"
                 android:src="@drawable/libongo_coin_1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/preco_anuncio"
+                app:layout_constraintEnd_toStartOf="@+id/pedidoDetalhado_txt_preco_anuncio"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/preco_anuncio"
+                android:id="@+id/pedidoDetalhado_txt_preco_anuncio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123"

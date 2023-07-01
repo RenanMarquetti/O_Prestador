@@ -30,7 +30,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
             listaPedidosTxtQtdMoedas.text = Database.sessionProfile!!.moedas.toString()
 
             listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
-            listaPedidosRvPedidos.adapter = ListPedidosAdapter()
+            listaPedidosRvPedidos.adapter = ListPedidosAdapter(fragmentAttachListener!!)
         }
 
     }
@@ -45,9 +45,9 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
         super.onDestroy()
     }
 
-    private class ListPedidosAdapter : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
+    private class ListPedidosAdapter(fragmentAttachListener: FragmentAttachListener) : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
         private val interatorPedidos = Database.pedidosList.iterator()
-        //val attach = fragmentAttachListener
+        val listener = fragmentAttachListener
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.layout_pedidos_resumido,parent,false)
@@ -59,12 +59,12 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {
-            holder.bind(position, interatorPedidos.next())
+            holder.bind(position, interatorPedidos.next(), listener)
         }
 
         private class ListPedidosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(posi: Int, pedido: Pedido) {
+            fun bind(posi: Int, pedido: Pedido, listener: FragmentAttachListener) {
 
                 val binding: LayoutPedidosResumidoBinding = LayoutPedidosResumidoBinding.bind(itemView)
                 with(binding) {
@@ -74,8 +74,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
                 }
 
                 itemView.setOnClickListener {
-
-                    Navigation.findNavController(it).navigate(R.id.action_nav_fragmentListaPedidos_to_fragmentPedidoDetalhado)
+                    listener.goToPedidoDetalhasoScrean(pedido)
                 }
             }
         }

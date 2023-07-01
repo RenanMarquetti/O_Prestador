@@ -4,7 +4,9 @@ package com.example.oprestador.user.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,7 +23,6 @@ class UserActivity : AppCompatActivity(), FragmentAttachListener {
     private lateinit var appBarConfiguration : AppBarConfiguration
     private lateinit var binding: ActivityUserBinding
     private lateinit var navControler: NavController
-    private lateinit var pedido: Pedido
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +54,24 @@ class UserActivity : AppCompatActivity(), FragmentAttachListener {
         return navControler.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun goToPedido(pedido: Pedido) {
-        this.pedido = pedido
+    override fun goToPedidoDetalhasoScrean(pedido: Pedido) {
+
+        val fragment = FragmentPedidoDetalhado()
+        fragment.setPedido(pedido)
+        replaceFragment(fragment)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+
+        val isStackEmpty = supportFragmentManager.findFragmentById(R.id.nav_user_fragment) == null
+
+        supportFragmentManager.beginTransaction().apply {
+            if (isStackEmpty) add(R.id.nav_user_fragment, fragment)
+            else {
+                replace(R.id.nav_user_fragment, fragment)
+                addToBackStack(null)
+            }
+            commit()
+        }
     }
 }
