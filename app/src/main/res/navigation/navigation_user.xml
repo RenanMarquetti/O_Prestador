@@ -29,6 +29,7 @@
     <fragment
         android:id="@+id/fragmentPedidoDetalhado"
         android:name="com.example.oprestador.user.view.FragmentPedidoDetalhado"
-        android:label="@string/label_fragment_pedido_detalhado" />
+        android:label="@string/label_fragment_pedido_detalhado" >
+    </fragment>
 
 </navigation>

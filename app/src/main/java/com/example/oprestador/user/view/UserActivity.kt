@@ -54,7 +54,7 @@ class UserActivity : AppCompatActivity(), FragmentAttachListener {
         return navControler.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun goToPedidoDetalhasoScrean(pedido: Pedido) {
+    override fun goToPedidoDetalhadoScrean(pedido: Pedido) {
 
         val fragment = FragmentPedidoDetalhado()
         fragment.setPedido(pedido)
