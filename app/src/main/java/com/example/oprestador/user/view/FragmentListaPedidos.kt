@@ -51,8 +51,10 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
     }
 
     private class ListPedidosAdapter(fragmentAttachListener: FragmentAttachListener) : RecyclerView.Adapter<ListPedidosAdapter.ListPedidosViewHolder> () {
+
         private val interatorPedidos = Database.pedidosList.iterator()
         val listener = fragmentAttachListener
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.layout_pedidos_resumido,parent,false)
