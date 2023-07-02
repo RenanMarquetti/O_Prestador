@@ -148,10 +148,11 @@
 
     <com.example.oprestador.lnicial.view.LoadingBotton
         android:id="@+id/perfil_loading_button_salvar"
+        app:text="@string/txt_salvar"
+        android:backgroundTint="@color/button_background_primaria"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:text="@string/txt_salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/perfil_checkbox_concentimento" />

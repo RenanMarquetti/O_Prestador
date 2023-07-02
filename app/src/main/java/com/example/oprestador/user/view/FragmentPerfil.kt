@@ -47,7 +47,6 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
 
                 presenter.updateProfile(dados)
             }
-
         }
     }
 

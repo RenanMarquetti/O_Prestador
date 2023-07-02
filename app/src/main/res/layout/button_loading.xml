@@ -6,6 +6,7 @@
     <Button
         android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:background="@drawable/borda_arredondada"
         android:backgroundTint="@color/button_background_primaria"
         android:textColor="@color/white"
