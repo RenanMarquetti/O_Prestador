@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="estados_angola">
+        <item>Bengo</item>
+        <item>Benguela</item>
+        <item>Bié</item>
+        <item>Cabinda</item>
+        <item>Cuando-Cubango</item>
+        <item>Cunene</item>
+        <item>Huambo</item>
+        <item>Huíla</item>
+        <item>Kwanza Sul</item>
+        <item>Kwanza Norte</item>
+        <item>Luanda</item>
+        <item>Lunda Norte</item>
+        <item>Lunda Sul</item>
+        <item>Malanje</item>
+        <item>Moxico</item>
+        <item>Namibe</item>
+        <item>Uíge</item>
+        <item>Zaire</item>
+    </string-array>
+
+    <string-array name="categorias">
+        <item>Elétrica</item>
+        <item>Hidraulica</item>
+        <item>Categoria 3</item>
+        <item>Categoria 4</item>
+        <item>Categoria 5</item>
+        <item>Categoria 6</item>
+    </string-array>
+</resources>

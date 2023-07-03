@@ -24,7 +24,7 @@
             style="@style/AutoCompleteTextView">
 
             <AutoCompleteTextView
-                android:id="@+id/input_categoria"
+                android:id="@+id/pedido_novo_input_categoria"
                 style="@style/Input_AutoCompleteTextView"
                 android:hint="@string/categoria"/>
 
