@@ -24,9 +24,25 @@
     <string-array name="categorias">
         <item>Elétrica</item>
         <item>Hidraulica</item>
-        <item>Categoria 3</item>
-        <item>Categoria 4</item>
-        <item>Categoria 5</item>
-        <item>Categoria 6</item>
+    </string-array>
+
+    <string-array name="subCategorias_eletrica">
+        <item>Residencial</item>
+        <item>Predial</item>
+        <item>Insustrial</item>
+        <item>Baixa Tensão</item>
+        <item>Média Tensão</item>
+        <item>Alta Tensão</item>
+    </string-array>
+
+    <string-array name="subCategorias_hidraulica">
+        <item>Esgoto</item>
+        <item>Aguá Quente</item>
+        <item>Instalação</item>
+        <item>Construção</item>
+    </string-array>
+
+    <string-array name="subCategorias_generica">
+        <item>Erro</item>
     </string-array>
 </resources>
