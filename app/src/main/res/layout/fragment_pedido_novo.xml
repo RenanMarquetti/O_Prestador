@@ -37,36 +37,39 @@
             style="@style/AutoCompleteTextView">
 
             <AutoCompleteTextView
-                android:id="@+id/input_sub_categoria"
+                android:id="@+id/pedido_novo_input_sub_categoria"
                 style="@style/Input_AutoCompleteTextView"
                 android:hint="@string/sub_categoria"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
+            android:id="@+id/pedido_novo_editText_local"
             style="@style/editText_pedido_novo"
             android:background="@drawable/background_edit_text_novo_pedido"
             android:hint="@string/local"/>
         <EditText
+            android:id="@+id/pedido_novo_editText_titulo"
             style="@style/editText_pedido_novo"
             android:hint="@string/titulo_pedido_novo"/>
         <EditText
+            android:id="@+id/pedido_novo_editText_descricao"
             style="@style/editText_pedido_novo"
             android:gravity="start|top"
             android:layout_height="200dp"
             android:hint="@string/descricao"/>
         <EditText
+            android:id="@+id/pedido_novo_editText_valor"
             style="@style/editText_pedido_novo"
+            android:inputType="numberDecimal"
             android:background="@drawable/background_edit_text_novo_pedido"
             android:hint="@string/valor"/>
 
-        <Button
-            android:layout_width="match_parent"
+        <com.example.oprestador.lnicial.view.LoadingBotton
+            android:id="@+id/pedido_novo_btn_criar"
+            app:text="@string/enviar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/borda_arredondada"
-            android:backgroundTint="@color/primaria_2"
-            android:text="@string/enviar"
-            android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>

@@ -22,7 +22,6 @@ class FragmentLogin : Fragment(R.layout.fragment_login), Login.View {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentLoginBinding.bind(view)
-
         presenter = LoginPresenter(this,DependecInjector.loginRepository())
 
         with(binding!!) {
