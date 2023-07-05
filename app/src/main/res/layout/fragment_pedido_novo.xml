@@ -9,7 +9,6 @@
 <!--        layout="@layout/logo_cabecalho"/>-->
 
     <LinearLayout
-        android:layout_marginTop="0dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,11 +42,75 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/pedido_novo_editText_local"
-            style="@style/editText_pedido_novo"
-            android:background="@drawable/background_edit_text_novo_pedido"
-            android:hint="@string/local"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AutoCompleteTextView">
+
+            <AutoCompleteTextView
+                android:id="@+id/pedido_novo_input_provincia"
+                style="@style/Input_AutoCompleteTextView"
+                android:hint="@string/provincia"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                style="@style/AutoCompleteTextView"
+                android:layout_marginEnd="4dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/pedido_novo_input_cidade"
+                    style="@style/Input_AutoCompleteTextView"
+                    android:hint="@string/cidade"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                style="@style/AutoCompleteTextView">
+
+                <AutoCompleteTextView
+                    android:id="@+id/pedido_novo_input_bairro"
+                    style="@style/Input_AutoCompleteTextView"
+                    android:hint="@string/bairro"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/pedido_novo_editText_rua"
+                android:layout_width="245dp"
+                style="@style/editText_pedido_novo"
+                android:background="@drawable/background_edit_text_novo_pedido"
+                android:hint="@string/rua"
+                android:inputType="text"
+                android:layout_marginEnd="5dp"/>
+            <EditText
+                android:id="@+id/pedido_novo_editText_num"
+                android:layout_width="50dp"
+                style="@style/editText_pedido_novo"
+                android:inputType="number"
+                android:background="@drawable/background_edit_text_novo_pedido"
+                android:hint="@string/num_endereco"/>
+
+        </LinearLayout>
+
         <EditText
             android:id="@+id/pedido_novo_editText_titulo"
             style="@style/editText_pedido_novo"

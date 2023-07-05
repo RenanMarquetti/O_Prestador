@@ -39,7 +39,7 @@
     <string name="pedidos_abertos">Pedidos Abertos</string>
     <string name="categoria">Categoria</string>
     <string name="sub_categoria">Sub Categoria</string>
-    <string name="local">Local</string>
+    <string name="rua">Rua</string>
     <string name="titulo_pedido_novo">Título</string>
     <string name="descricao">Descrição</string>
     <string name="valor">Valor</string>
@@ -48,4 +48,7 @@
     <string name="invalid_password">A senha deve ter pelo menos 8 caracteres</string>
     <string name="invalid_repet_password">as senhas são diferentes</string>
     <string name="txt_salvar">Salvar</string>
+    <string name="provincia">Provincia</string>
+    <string name="cidade">Cidade</string>
+    <string name="bairro">Bairro</string>
 </resources>

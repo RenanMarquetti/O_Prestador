@@ -37,14 +37,20 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
             }
 
             pedidoNovoBtnCriar.setOnClickListener{
-                object : DadosPedido {
+                val dados = object : DadosPedido {
                     override val categoria = pedidoNovoInputCategoria.text.toString()
                     override val subCategoria = pedidoNovoInputSubCategoria.text.toString()
-                    override val address = Address(pedidoNovoEditTextLocal.text.toString(),"","","")
+                    override val provincia = pedidoNovoInputProvincia.text.toString()
+                    override val cidade = pedidoNovoInputCidade.text.toString()
+                    override val bairro = pedidoNovoInputBairro.text.toString()
+                    override val rua = pedidoNovoEditTextRua.text.toString()
+                    override val numeroRua = pedidoNovoEditTextNum.text.toString()
                     override val titulo = pedidoNovoEditTextTitulo.text.toString()
                     override val descricao = pedidoNovoEditTextDescricao.text.toString()
                     override val valor = BigDecimal(pedidoNovoEditTextValor.text.toString())
                 }
+
+                presenter.createNewPedido(dados)
             }
         }
     }
