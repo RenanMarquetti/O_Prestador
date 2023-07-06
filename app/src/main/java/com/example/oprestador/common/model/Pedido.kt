@@ -1,5 +1,6 @@
 package com.example.oprestador.common.model
 
+import java.math.BigDecimal
 import java.util.Date
 
 data class Pedido(
@@ -9,5 +10,6 @@ data class Pedido(
     val descricao: String,
     val endereco: Address,
     val prazo: Date,
-    val valor: Int
+    val valor: BigDecimal,
+    val valorAnuncio: Int
 )

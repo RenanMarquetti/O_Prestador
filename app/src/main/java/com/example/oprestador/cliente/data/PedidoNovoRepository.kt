@@ -1,8 +1,10 @@
 package com.example.oprestador.cliente.data
 
-class PedidoNovoRepository(private val dataSource: PedidoNovoDataSource) {
-    fun salvarNovoPedido() {
+import com.example.oprestador.common.model.Pedido
 
-        //dataSource.gravarPedido()
+class PedidoNovoRepository(private val dataSource: PedidoNovoDataSource) {
+    fun salvarNovoPedido(pedido: Pedido, callback: PedidoNovoCallback) {
+
+        dataSource.gravarPedido(pedido, callback)
     }
 }

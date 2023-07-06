@@ -3,6 +3,7 @@ package com.example.oprestador.cliente.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.oprestador.R
 import com.example.oprestador.cliente.PedidoNovo
@@ -12,10 +13,13 @@ import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.databinding.FragmentPedidoNovoBinding
 import java.math.BigDecimal
 import com.example.oprestador.common.model.Address
+import com.example.oprestador.common.model.Pedido
+import com.example.oprestador.common.model.UserProfile
 
 class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.View {
 
     private var binding: FragmentPedidoNovoBinding? = null
+
     override lateinit var presenter: PedidoNovo.Presenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +40,8 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
                 pedidoNovoInputSubCategoria.setAdapter(adapterSubCategorias)
             }
 
+            //TODO tem que terminar de fazer o gerenciamentos dos adapters desta view
+
             pedidoNovoBtnCriar.setOnClickListener{
                 val dados = object : DadosPedido {
                     override val categoria = pedidoNovoInputCategoria.text.toString()
@@ -55,11 +61,6 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
         }
     }
 
-    override fun onDestroy() {
-        binding = null
-        super.onDestroy()
-    }
-
     private fun getIdSubCategoria(categoria: String): Int {
         return when(categoria){
             "Elétrica" -> R.array.subCategorias_eletrica
@@ -67,4 +68,27 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
             else -> R.array.subCategorias_generica
         }
     }
+
+    override fun showProgess(enabled: Boolean) {
+        binding!!.pedidoNovoBtnCriar.showProgressBar(enabled)
+    }
+
+    override fun createDone(pedido: Pedido) {
+        Toast.makeText(requireContext(), "Update de dados foi concluido", Toast.LENGTH_LONG).show()
+    }
+
+    override fun createFailure(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun inputError(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+    }
+
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
+
 }

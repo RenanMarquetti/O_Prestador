@@ -1,6 +1,5 @@
 package com.example.oprestador.user.view
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,8 +8,6 @@ import com.example.oprestador.R
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentPedidoDetalhadoBinding
-import com.example.oprestador.user.FragmentAttachListener
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
@@ -28,10 +25,10 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoTxtDescricao.text = pedido.descricao
             pedidoDetalhadoTxtLocal.text = pedido.endereco.street
             pedidoDetalhadoTxtPrazo.text = SimpleDateFormat("dd/MM/yyyy").format(pedido.prazo)
-            pedidoDetalhadoTxtPrecoAnuncio.text = pedido.valor.toString()
+            pedidoDetalhadoTxtPrecoAnuncio.text = pedido.valorAnuncio.toString()
             pedidoDetalhadoLayoutButtonLiberarPedido.isClickable = true //pedido.valor <= profile.moedas
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
-                profile.moedas -= pedido.valor
+                profile.moedas -= pedido.valorAnuncio
                 profile.listPedidos.add(pedido)
                 Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
             }
