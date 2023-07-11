@@ -12,9 +12,7 @@ import com.example.oprestador.cliente.presentation.PedidoNovoPresentation
 import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.databinding.FragmentPedidoNovoBinding
 import java.math.BigDecimal
-import com.example.oprestador.common.model.Address
 import com.example.oprestador.common.model.Pedido
-import com.example.oprestador.common.model.UserProfile
 
 class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.View {
 
@@ -40,7 +38,13 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
                 pedidoNovoInputSubCategoria.setAdapter(adapterSubCategorias)
             }
 
-            //TODO tem que terminar de fazer o gerenciamentos dos adapters desta view
+            val provincias = resources.getStringArray(R.array.provincias_angola)
+            pedidoNovoInputProvincia.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, provincias))
+            pedidoNovoInputProvincia.setOnItemClickListener { adapterView, view, i, l ->
+                val municipios =  resources.getStringArray(getIdCidade(pedidoNovoInputProvincia.text.toString()))
+                val adapterMunicipios = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, municipios)
+                pedidoNovoInputCidade.setAdapter(adapterMunicipios)
+            }
 
             pedidoNovoBtnCriar.setOnClickListener{
                 val dados = object : DadosPedido {
@@ -61,11 +65,35 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
         }
     }
 
+    private fun getIdCidade(provincia: String): Int {
+        return when(provincia){
+            "Bengo" -> R.array.municipios_bengo
+            "Benguela" -> R.array.municipios_benguela
+            "Bié" -> R.array.municipios_bie
+            "Cabinda" -> R.array.municipios_cabinda
+            "Cuando-Cubango" -> R.array.municipios_cuando_cubango
+            "Cunene" -> R.array.municipios_cunene
+            "Huambo" -> R.array.municipios_huambo
+            "Huíla" -> R.array.municipios_huila
+            "Kwanza Sul" -> R.array.municipios_kuanza_sul
+            "Kwanza Norte" -> R.array.municipios_kuanza_norte
+            "Luanda" -> R.array.municipios_luanda
+            "Lunda Norte" -> R.array.municipios_lunda_norte
+            "Lunda Sul" -> R.array.municipios_lunda_sul
+            "Malanje" -> R.array.municipios_malange
+            "Moxico" -> R.array.municipios_moxico
+            "Namibe" -> R.array.municipios_namibe
+            "Uíge" -> R.array.municipios_uige
+            "Zaire" -> R.array.municipios_zaire
+            else -> R.array.array_error
+        }
+    }
+
     private fun getIdSubCategoria(categoria: String): Int {
         return when(categoria){
             "Elétrica" -> R.array.subCategorias_eletrica
             "Hidraulica" -> R.array.subCategorias_hidraulica
-            else -> R.array.subCategorias_generica
+            else -> R.array.array_error
         }
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="estados_angola">
+    <string-array name="provincias_angola">
         <item>Bengo</item>
         <item>Benguela</item>
         <item>Bié</item>
@@ -19,6 +19,228 @@
         <item>Namibe</item>
         <item>Uíge</item>
         <item>Zaire</item>
+    </string-array>
+
+    <string-array name="municipios_bengo">
+        <item>Dande</item>
+        <item>Nambuangongo</item>
+        <item>Dembos</item>
+        <item>Ambriz</item>
+        <item>Bula Atumba</item>
+        <item>Pango Aluquém</item>
+    </string-array>
+
+    <string-array name="municipios_benguela">
+        <item>Benguela</item>
+        <item>Lobito</item>
+        <item>Cubal</item>
+        <item>Ganda</item>
+        <item>Catumbela</item>
+        <item>Bocoio</item>
+        <item>Baía Farta</item>
+        <item>Balombo</item>
+        <item>Chongorói</item>
+        <item>Caimbambo</item>
+    </string-array>
+
+    <string-array name="municipios_bie">
+        <item>Cuíto</item>
+        <item>Andulo</item>
+        <item>Chinguar</item>
+        <item>Camacupa</item>
+        <item>Catabola</item>
+        <item>Cuemba</item>
+        <item>Nharea</item>
+        <item>Cunhinga</item>
+        <item>Chitembo</item>
+    </string-array>
+
+    <string-array name="municipios_cabinda">
+        <item>Cabinda</item>
+        <item>Buco-Zau</item>
+        <item>Cacongo</item>
+        <item>Belize</item>
+    </string-array>
+
+    <string-array name="municipios_cuando_cubango">
+        <item>Menongue</item>
+        <item>Calai</item>
+        <item>Cuito Cuanavale</item>
+        <item>Cuchi</item>
+        <item>Dirico</item>
+        <item>Rivungo</item>
+        <item>Mavinga</item>
+        <item>Cuangar</item>
+        <item>Nancova</item>
+        <item>Longa</item>
+    </string-array>
+
+    <string-array name="municipios_kuanza_norte">
+        <item>Cazengo</item>
+        <item>Ambaca</item>
+        <item>Samba Caju</item>
+        <item>Cambambe</item>
+        <item>Golungo Alto</item>
+        <item>Lucala</item>
+        <item>Gonguembo</item>
+        <item>Banga</item>
+        <item>Bolongongo</item>
+        <item>Quiculungo</item>
+    </string-array>
+
+    <string-array name="municipios_kuanza_sul">
+        <item>Sumbe</item>
+        <item>Amboim</item>
+        <item>Porto Amboim</item>
+        <item>Seles</item>
+        <item>Quibala</item>
+        <item>Cela</item>
+        <item>Ebo</item>
+        <item>Gabela</item>
+        <item>Libolo</item>
+        <item>Cassongue</item>
+        <item>Mussende</item>
+        <item>Conda</item>
+        <item>Quilenda</item>
+    </string-array>
+
+    <string-array name="municipios_cunene">
+        <item>Cuanhama</item>
+        <item>Namacunde</item>
+        <item>Ombadja</item>
+        <item>Cahama</item>
+        <item>Curoca</item>
+        <item>Cuvelai</item>
+    </string-array>
+
+    <string-array name="municipios_huambo">
+        <item>Huambo</item>
+        <item>Caála</item>
+        <item>Londuimbale</item>
+        <item>Ekunha</item>
+        <item>Longonjo</item>
+        <item>Ecunha</item>
+        <item>Ucuma</item>
+        <item>Tchicala-Tcholoanga</item>
+        <item>Catchiungo</item>
+        <item>Bailundo</item>
+        <item>Ucuma</item>
+        <item>Mungo</item>
+        <item>Tchindjenje</item>
+    </string-array>
+
+    <string-array name="municipios_huila">
+        <item>Lubango</item>
+        <item>Matala</item>
+        <item>Caluquembe</item>
+        <item>Caconda</item>
+        <item>Quipungo</item>
+        <item>Chiange</item>
+        <item>Chibia</item>
+        <item>Cacula</item>
+        <item>Quilengues</item>
+        <item>Chicomba</item>
+        <item>Jamba</item>
+        <item>Humpata</item>
+        <item>Cuvango</item>
+        <item>Chipindo</item>
+    </string-array>
+
+    <string-array name="municipios_luanda">
+        <item>Luanda</item>
+        <item>Viana</item>
+        <item>Cacuaco</item>
+        <item>Belas</item>
+        <item>Cazenga</item>
+        <item>Talatona</item>
+        <item>Ícolo e Bengo</item>
+        <item>Quissama</item>
+    </string-array>
+
+    <string-array name="municipios_lunda_norte">
+        <item>Xá-Muteba</item>
+        <item>Chitato</item>
+        <item>Lucapa</item>
+        <item>Capenda-Camulemba</item>
+        <item>Caungula</item>
+        <item>Cuango</item>
+        <item>Lubalo</item>
+        <item>Cuilo</item>
+        <item>Cambulo</item>
+    </string-array>
+
+    <string-array name="municipios_lunda_sul">
+        <item>Saurimo</item>
+        <item>Muconda</item>
+        <item>Dala</item>
+        <item>Cacolo</item>
+    </string-array>
+
+    <string-array name="municipios_malange">
+        <item>Caombo</item>
+        <item>Cuaba Nzogo</item>
+        <item>Malanje</item>
+        <item>Cacuso</item>
+        <item>Quela</item>
+        <item>Calandula</item>
+        <item>Cambundi-Catembo</item>
+        <item>Massango</item>
+        <item>Quirima</item>
+        <item>Quitexe</item>
+        <item>Luquembo</item>
+        <item>Cangandala</item>
+        <item>Marimba</item>
+        <item>Cunda-Dia-Baze</item>
+        <item>Mucari</item>
+        <item>Malanje</item>
+    </string-array>
+
+    <string-array name="municipios_moxico">
+        <item>Moxico</item>
+        <item>Cameia</item>
+        <item>Bundas</item>
+        <item>Luau</item>
+        <item>Léua</item>
+        <item>Luchazes</item>
+        <item>Luacano</item>
+        <item>Alto Zambeze</item>
+        <item>Camanongue</item>
+    </string-array>
+
+    <string-array name="municipios_namibe">
+        <item>Moçâmedes</item>
+        <item>Virei</item>
+        <item>Bibala</item>
+        <item>Tômbua</item>
+        <item>Camucuio</item>
+    </string-array>
+
+    <string-array name="municipios_uige">
+        <item>Uíge</item>
+        <item>Negage</item>
+        <item>Quimbele</item>
+        <item>Damba</item>
+        <item>Maquela do Zombo</item>
+        <item>Alto Cauale</item>
+        <item>Buengas</item>
+        <item>Sanza Pombo</item>
+        <item>Bembe</item>
+        <item>Bungo</item>
+        <item>Mucaba</item>
+        <item>Puri</item>
+        <item>Zombo</item>
+        <item>Ambuíla</item>
+        <item>Macocola</item>
+        <item>Songo</item>
+    </string-array>
+
+    <string-array name="municipios_zaire">
+        <item>Soyo</item>
+        <item>Mabanza Congo</item>
+        <item>Cuimba</item>
+        <item>N\'Zeto</item>
+        <item>Tomboco</item>
+        <item>Noqui</item>
     </string-array>
 
     <string-array name="categorias">
@@ -42,7 +264,7 @@
         <item>Construção</item>
     </string-array>
 
-    <string-array name="subCategorias_generica">
+    <string-array name="array_error">
         <item>Erro</item>
     </string-array>
 </resources>
