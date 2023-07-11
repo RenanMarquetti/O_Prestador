@@ -19,7 +19,6 @@ class LoadingBotton: FrameLayout {
 
     private var text: String? = null
 
-
     constructor(context: Context): super(context)
     constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
         setup(context, attrs)

@@ -13,6 +13,7 @@ import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.databinding.FragmentPedidoNovoBinding
 import java.math.BigDecimal
 import com.example.oprestador.common.model.Pedido
+import com.example.oprestador.common.view.TxtWatcher
 
 class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.View {
 
@@ -46,7 +47,6 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
                 pedidoNovoInputCidade.setAdapter(adapterMunicipios)
             }
 
-            pedidoNovoBtnCriar.isEnabled = false
             pedidoNovoBtnCriar.setOnClickListener{
                 val dados = object : DadosPedido {
                     override val categoria = pedidoNovoInputCategoria.text.toString()
@@ -63,7 +63,13 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
 
                 presenter.createNewPedido(dados)
             }
+
+            pedidoNovoEditTextValor.addTextChangedListener(watcher)
         }
+    }
+
+    private val watcher = TxtWatcher{
+        binding!!.pedidoNovoBtnCriar.isEnabled = binding!!.pedidoNovoEditTextValor.text.toString().isNotEmpty()
     }
 
     private fun getIdCidade(provincia: String): Int {
