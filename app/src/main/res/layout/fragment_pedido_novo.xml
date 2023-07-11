@@ -69,23 +69,19 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/pedido_novo_input_cidade"
+                    android:layout_height="match_parent"
                     style="@style/Input_AutoCompleteTextView"
                     android:hint="@string/cidade"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="5dp"
+            <EditText
+                android:id="@+id/pedido_novo_input_bairro"
                 android:layout_width="148dp"
-                android:layout_height="wrap_content"
-                style="@style/AutoCompleteTextView">
-
-                <AutoCompleteTextView
-                    android:id="@+id/pedido_novo_input_bairro"
-                    style="@style/Input_AutoCompleteTextView"
-                    android:hint="@string/bairro"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="6dp"
+                android:background="@drawable/background_edit_text_novo_pedido"
+                style="@style/editText_pedido_novo"
+                android:hint="@string/bairro"/>
 
         </LinearLayout>
 
@@ -119,7 +115,7 @@
             android:id="@+id/pedido_novo_editText_descricao"
             style="@style/editText_pedido_novo"
             android:gravity="start|top"
-            android:layout_height="200dp"
+            android:layout_height="130dp"
             android:hint="@string/descricao"/>
         <EditText
             android:id="@+id/pedido_novo_editText_valor"
@@ -131,8 +127,9 @@
         <com.example.oprestador.lnicial.view.LoadingBotton
             android:id="@+id/pedido_novo_btn_criar"
             app:text="@string/enviar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_height="50dp"
+            android:layout_width="300dp"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>

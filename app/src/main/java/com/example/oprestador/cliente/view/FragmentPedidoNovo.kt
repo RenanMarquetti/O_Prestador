@@ -46,6 +46,7 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
                 pedidoNovoInputCidade.setAdapter(adapterMunicipios)
             }
 
+            pedidoNovoBtnCriar.isEnabled = false
             pedidoNovoBtnCriar.setOnClickListener{
                 val dados = object : DadosPedido {
                     override val categoria = pedidoNovoInputCategoria.text.toString()
