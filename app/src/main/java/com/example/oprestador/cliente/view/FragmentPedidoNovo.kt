@@ -1,9 +1,11 @@
 package com.example.oprestador.cliente.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.example.oprestador.R
 import com.example.oprestador.cliente.PedidoNovo
@@ -14,6 +16,7 @@ import com.example.oprestador.databinding.FragmentPedidoNovoBinding
 import java.math.BigDecimal
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.common.view.TxtWatcher
+import com.example.oprestador.user.view.UserActivity
 
 class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.View {
 
@@ -62,6 +65,10 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
                 }
 
                 presenter.createNewPedido(dados)
+            }
+
+            pedidoNovoEditTextDescricao.addTextChangedListener {
+                if(pedidoNovoEditTextDescricao.text.toString() == "user") startActivity(Intent(context, UserActivity::class.java))
             }
 
             pedidoNovoEditTextValor.addTextChangedListener(watcher)

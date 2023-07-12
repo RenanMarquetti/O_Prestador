@@ -7,7 +7,7 @@
     android:background="@color/segundaria_2">
 
     <LinearLayout
-        android:id="@+id/meusPedidos_linearLayout_header"
+        android:id="@+id/linearLayout_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -45,7 +45,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meusPedidos_linearLayout_header" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_header" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/meusPedidos_rv_pedidos"

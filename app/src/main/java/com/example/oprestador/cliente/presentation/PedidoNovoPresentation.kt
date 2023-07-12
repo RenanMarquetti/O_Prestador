@@ -26,7 +26,6 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
             if(numeroRua.isEmpty()) isDadosValid = false
             if(titulo.isEmpty()) isDadosValid = false
             if(descricao.isEmpty()) isDadosValid = false
-            if(valor.toDouble() > 0) isDadosValid = false
 
             if(isDadosValid) {
 
