@@ -12,49 +12,22 @@ object Database {
     var sessionAuth : UserAuth? = null
     var sessionProfile: UserProfile? = null
 
-    fun addUser(email: String, passord: String) : UserAuth {
-
-        val newUser = UserAuth(UUID.randomUUID().toString(), email, passord)
-        usersAuth.add(newUser)
-        return newUser
-    }
-
+    fun addUser(email: String, password: String) = usersAuth.add(UserAuth(UUID.randomUUID().toString(), email, password))
     fun addPedido(uuidDono: String, titulo: String, descricao: String, local: Address, prazo: Date, valor: String, preco: Int) {
-
-        val pedido = Pedido(uuidDono, titulo, descricao, local, prazo, BigDecimal(valor), preco)
-        pedidosList.add(pedido)
+        pedidosList.add(Pedido(uuidDono, titulo, descricao, local, prazo, BigDecimal(valor), preco))
     }
 
     init {
 
-        iniciarUser("renan@gmail.com","12345678", "Renan Marquetti",5000, "42", "988639349", "Rua Rosa Schoemberger", "523", "Ponta Grossa", "Contorno")
+        addUser("renan@gmail.com","12345678")
 
-        addPedido("Teste Título 1", "Renan Marquetti", "Teste Descrição 1", Address("Rua do Fulano", "123", "Ponta Grossa", "Contorno"), Date(), "10.99", 420)
-        addPedido("Teste Título 2", "Fulano", "Teste Descrição 2", Address("Rua do Beltrano", "321", "Ponta Grossa", "Contorno"), Date(), "10.99", 236)
-        addPedido("Teste Título 3", "Ciclano", "Teste Descrição 3", Address("Rua Tal", "234", "Ponta Grossa", "Contorno"), Date(), "10.99", 142)
-        addPedido("Teste Título 4", "Beltrano", "Teste Descrição 4", Address("Rua do morador", "432", "Ponta Grossa", "Contorno"), Date(), "10.99", 371)
+        val uuidFirstUser = usersAuth.first().uuid
+        val dateNow = Date()
 
-    }
+        addPedido(uuidFirstUser,"Teste Título 1", "Teste Descrição 1", Address("Rua do Fulano", "123", "Ponta Grossa", "Contorno"), dateNow, "10.99", 420)
+        addPedido(uuidFirstUser,"Teste Título 2",  "Teste Descrição 2", Address("Rua do Beltrano", "321", "Ponta Grossa", "Contorno"), dateNow, "10.99", 236)
+        addPedido(uuidFirstUser,"Teste Título 3",  "Teste Descrição 3", Address("Rua Tal", "234", "Ponta Grossa", "Contorno"), dateNow, "10.99", 142)
+        addPedido(uuidFirstUser, "Teste Título 4", "Teste Descrição 4", Address("Rua do morador", "432", "Ponta Grossa", "Contorno"), dateNow, "10.99", 371)
 
-    fun iniciarUser(email: String, password: String, name: String, moedas: Int,ddd: String, numFone: String,
-                    street: String, numAddress: String, cidade: String, bairro: String) {
-
-
-        val uuid = UUID.randomUUID().toString()
-
-        val auth = UserAuth(uuid, email, password)
-
-        with(auth.profile){
-            telefone.ddd = ddd
-            telefone.telefone = numFone
-
-            endereco.street = street
-            endereco.numEndereco = numAddress
-            endereco.city = cidade
-            endereco.neighborhood = bairro
-
-        }
-
-        usersAuth.add(auth)
     }
 }
