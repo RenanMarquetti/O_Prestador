@@ -5,7 +5,7 @@ import java.util.Date
 import java.util.UUID
 
 data class Pedido(
-    val uuidDono: UUID,
+    val uuidDono: String,
     val titulo: String,
     val descricao: String,
     val endereco: Address,

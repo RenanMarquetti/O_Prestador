@@ -4,6 +4,6 @@ data class UserAuth(
     val uuid: String,
     val email: String,
     var password: String,
-    val profile: UserProfile,
+    val profile: UserProfile = UserProfile(),
     var moedas: Int = 0
 )

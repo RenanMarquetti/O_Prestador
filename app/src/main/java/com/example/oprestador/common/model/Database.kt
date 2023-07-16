@@ -7,7 +7,6 @@ import java.util.UUID
 object Database {
 
     val usersAuth = hashSetOf<UserAuth>()
-    val usersProfile = hashSetOf<UserProfile>()
     val pedidosList = hashSetOf<Pedido>()
 
     var sessionAuth : UserAuth? = null
@@ -20,9 +19,9 @@ object Database {
         return newUser
     }
 
-    fun addPedido(titulo: String, nomeCliente: String, descricao: String, local: Address, prazo: Date, valor: String, preco: Int) {
+    fun addPedido(uuidDono: String, titulo: String, descricao: String, local: Address, prazo: Date, valor: String, preco: Int) {
 
-        val pedido = Pedido(UUID.randomUUID().toString(), nomeCliente, titulo, descricao, local, prazo, BigDecimal(valor), preco)
+        val pedido = Pedido(uuidDono, titulo, descricao, local, prazo, BigDecimal(valor), preco)
         pedidosList.add(pedido)
     }
 
@@ -44,13 +43,18 @@ object Database {
         val uuid = UUID.randomUUID().toString()
 
         val auth = UserAuth(uuid, email, password)
-        val fone = Fone(ddd, numFone)
-        val endereco = Address(street, numAddress, cidade, bairro)
-        val listPedidos = hashSetOf<Pedido>()
 
-        val userProfile = UserProfile(uuid, name, moedas, fone, endereco, listPedidos)
+        with(auth.profile){
+            telefone.ddd = ddd
+            telefone.telefone = numFone
+
+            endereco.street = street
+            endereco.numEndereco = numAddress
+            endereco.city = cidade
+            endereco.neighborhood = bairro
+
+        }
 
         usersAuth.add(auth)
-        usersProfile.add(userProfile)
     }
 }
