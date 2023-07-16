@@ -1,10 +1,8 @@
 package com.example.oprestador.common.model
 
 data class UserProfile(
-    val uuid: String,
-    var name: String,
-    var moedas: Int,
+    var name: String = "",
     val telefone: Fone,
     val endereco: Address,
-    val listPedidos: HashSet<Pedido>
+    val listPedidosComprados: HashSet<Pedido> = HashSet()
 )

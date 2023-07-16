@@ -29,7 +29,7 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoLayoutButtonLiberarPedido.isClickable = true //pedido.valor <= profile.moedas
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
                 profile.moedas -= pedido.valorAnuncio
-                profile.listPedidos.add(pedido)
+                profile.listPedidosComprados.add(pedido)
                 Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
             }
         }

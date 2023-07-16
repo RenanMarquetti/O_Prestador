@@ -14,7 +14,6 @@ import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentListaPedidosBinding
 import com.example.oprestador.databinding.LayoutPedidosResumidoBinding
 import com.example.oprestador.user.FragmentAttachListener
-import kotlin.coroutines.coroutineContext
 
 class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
@@ -81,7 +80,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
                     layoutPedidoRedumidostxtCliente.text = pedido.nomeCliente
                 }
 
-                val containsListUser = Database.sessionProfile!!.listPedidos.contains(pedido)
+                val containsListUser = Database.sessionProfile!!.listPedidosComprados.contains(pedido)
 
                 if(!containsListUser ) {
                     itemView.isEnabled = true
