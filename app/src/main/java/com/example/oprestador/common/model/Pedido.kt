@@ -6,6 +6,7 @@ import java.util.UUID
 
 data class Pedido(
     val uuidDono: String,
+    val nomeDono: String,
     val titulo: String,
     val descricao: String,
     val endereco: Address,

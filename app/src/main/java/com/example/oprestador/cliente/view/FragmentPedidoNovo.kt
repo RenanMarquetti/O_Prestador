@@ -130,6 +130,7 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
 
     override fun onDestroy() {
         binding = null
+        presenter.onDestroy()
         super.onDestroy()
     }
 

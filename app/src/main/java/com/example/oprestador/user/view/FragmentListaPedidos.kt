@@ -26,7 +26,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
         with(binding!!) {
 
-            listaPedidosTxtQtdMoedas.text = Database.sessionProfile!!.moedas.toString()
+            listaPedidosTxtQtdMoedas.text = Database.sessionAuth!!.moedas.toString()
 
             listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
             listaPedidosRvPedidos.adapter = ListPedidosAdapter(fragmentAttachListener!!)
@@ -36,7 +36,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
     override fun onResume() {
         super.onResume()
-        binding!!.listaPedidosTxtQtdMoedas.text = Database.sessionProfile!!.moedas.toString()
+        binding!!.listaPedidosTxtQtdMoedas.text = Database.sessionAuth!!.moedas.toString()
     }
 
     override fun onAttach(context: Context) {
@@ -77,10 +77,10 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
                 with(binding) {
                     layoutPedidoRedumidosTxtTitulo.text = pedido.titulo
                     layoutPedidoRedumidosTxtLocal.text = "${pedido.endereco.street} N°${pedido.endereco.numEndereco}"
-                    layoutPedidoRedumidostxtCliente.text = pedido.nomeCliente
+                    layoutPedidoRedumidostxtCliente.text = pedido.nomeDono
                 }
 
-                val containsListUser = Database.sessionProfile!!.listPedidosComprados.contains(pedido)
+                val containsListUser = Database.sessionAuth!!.profile.listPedidosComprados.contains(pedido)
 
                 if(!containsListUser ) {
                     itemView.isEnabled = true

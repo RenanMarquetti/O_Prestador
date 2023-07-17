@@ -1,9 +1,9 @@
 package com.example.oprestador.user.data
 
-import com.example.oprestador.common.model.UserProfile
+import com.example.oprestador.common.model.UserAuth
 
 interface ProfileCallback {
-    fun onSuccess(profile: UserProfile)
+    fun onSuccess(user: UserAuth)
     fun onFailure(msg: String)
     fun onComplete()
 }

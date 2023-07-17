@@ -36,7 +36,7 @@ class FragmentMeusPedidos : Fragment(R.layout.fragment_meus_pedidos) {
 
     private class MeusPedidosAdapter : RecyclerView.Adapter<MeusPedidosAdapter.ListPedidosViewHolder> () {
 
-        private val interatorPedidos = Database.sessionProfile!!.listPedidosComprados.iterator()
+        private val interatorPedidos = Database.sessionAuth!!.profile.listPedidosComprados.iterator()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
@@ -45,7 +45,7 @@ class FragmentMeusPedidos : Fragment(R.layout.fragment_meus_pedidos) {
         }
 
         override fun getItemCount(): Int {
-            return Database.sessionProfile!!.listPedidosComprados.size
+            return Database.sessionAuth!!.profile.listPedidosComprados.size
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {
@@ -59,7 +59,7 @@ class FragmentMeusPedidos : Fragment(R.layout.fragment_meus_pedidos) {
                 with(binding) {
                     layoutPedidoRedumidosTxtTitulo.text = pedido.titulo
                     layoutPedidoRedumidosTxtLocal.text = "${pedido.endereco.street} N°${pedido.endereco.numEndereco}"
-                    layoutPedidoRedumidostxtCliente.text = pedido.nomeCliente
+                    layoutPedidoRedumidostxtCliente.text = pedido.nomeDono
                 }
             }
         }
