@@ -12,6 +12,7 @@ data class Pedido(
     val endereco: Address,
     val prazo: Date,
     val valorServico: BigDecimal,
-    val valorAnuncio: Int
+    val valorAnuncio: Int,
+    val listUuidUsersQueCompraram: HashSet<String> = hashSetOf()
 )
 
