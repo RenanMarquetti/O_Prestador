@@ -25,6 +25,7 @@ object Database {
     init {
 
         val userA = addUser("renan@gmail.com","12345678")
+        userA.moedas = 1000
         val userAnome = userA.profile.name
         val dateNow = Date()
 

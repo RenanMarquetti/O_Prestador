@@ -2,6 +2,7 @@ package com.example.oprestador.user.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
@@ -12,7 +13,7 @@ import java.text.SimpleDateFormat
 
 class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
 
-    private val profile = Database.sessionAuth!!.profile
+    private val user = Database.sessionAuth!!
     private var binding:FragmentPedidoDetalhadoBinding? = null
     private lateinit var pedido: Pedido
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,11 +27,15 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoTxtLocal.text = pedido.endereco.street
             pedidoDetalhadoTxtPrazo.text = SimpleDateFormat("dd/MM/yyyy").format(pedido.prazo)
             pedidoDetalhadoTxtPrecoAnuncio.text = pedido.valorAnuncio.toString()
-            pedidoDetalhadoLayoutButtonLiberarPedido.isClickable = true //pedido.valor <= profile.moedas
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
-                Database.sessionAuth!!.moedas -= pedido.valorAnuncio
-                profile.listPedidosComprados.add(pedido)
-                Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
+                 if(pedido.valorAnuncio <= user.moedas) {
+                     Database.sessionAuth!!.moedas -= pedido.valorAnuncio
+                     user.profile.listPedidosComprados.add(pedido)
+                     Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
+                 } else {
+                     Toast.makeText(requireContext(),"Moedas Insuficientes", Toast.LENGTH_SHORT).show()
+                 }
+
             }
         }
     }
