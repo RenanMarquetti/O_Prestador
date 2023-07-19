@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "223912661990",
+    "project_id": "o-prestador-3fd02",
+    "storage_bucket": "o-prestador-3fd02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223912661990:android:92ec01bf8fb5dbc19c7c27",
+        "android_client_info": {
+          "package_name": "com.example.oprestador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223912661990-k6je4hujnbobbb1sgkvt8sfb59lct1qm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEZPlF4-nagpBSfca4-GfcNh3qgG7rq_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223912661990-k6je4hujnbobbb1sgkvt8sfb59lct1qm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
