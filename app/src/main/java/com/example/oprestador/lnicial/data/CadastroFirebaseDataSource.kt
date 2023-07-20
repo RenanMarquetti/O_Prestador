@@ -1,13 +1,17 @@
 package com.example.oprestador.lnicial.data
 
 import com.example.oprestador.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CadastroFirebaseDataSource : CadastroDataSource {
     override fun create(email: String, password: String, callback: CadastroCallback) {
 
         if (existUser(email, callback)) callback.onFailure("usuario já cadastrado")
-        else registerNewUser(email, password, callback)
+        else {
+            createNewuser(email, password, callback)
+            callback.onSuccess()
+        }
 
         callback.onComplete()
     }
@@ -30,8 +34,20 @@ class CadastroFirebaseDataSource : CadastroDataSource {
         return exists
     }
 
-    private fun registerNewUser(email: String, password: String, callback: CadastroCallback) {
+    private fun createNewuser(email: String, password: String, callback: CadastroCallback) : String {
 
+        var uid = ""
+
+        FirebaseAuth.getInstance()
+            .createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener { result ->
+                uid = result.user?.uid.toString()
+            }
+            .addOnFailureListener { exception ->
+                callback.onFailure(exception.message ?: "Erro interno do servidor")
+            }
+
+        return uid
     }
 
 }

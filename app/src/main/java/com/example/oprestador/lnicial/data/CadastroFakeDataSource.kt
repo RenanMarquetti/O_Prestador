@@ -19,7 +19,7 @@ class CadastroFakeDataSource : CadastroDataSource {
 
                 val newUse = Database.addUser(email, password)
                 Database.sessionAuth = newUse
-                callback.onSuccess(newUse)
+                callback.onSuccess()
 
             }
 

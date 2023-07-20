@@ -71,7 +71,7 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
         binding!!.cadastroEditReptPasswordInput.error = repetPasswordError?.let { getString(it) }
     }
 
-    override fun onUserCreated(user: UserAuth) {
+    override fun onUserCreated() {
         Navigation.findNavController(requireView()).navigate(R.id.action_fragmentCadastro_to_fragmentDivisor)
     }
 

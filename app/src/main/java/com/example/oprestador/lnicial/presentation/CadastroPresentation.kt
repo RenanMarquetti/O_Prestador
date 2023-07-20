@@ -13,7 +13,7 @@ class CadastroPresentation(private var view: Cadastro.View?, private val reposit
 
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(loginEmail).matches()
         val isPasswordValid = password.length >= 8
-        val isRepetPassoreValid = password.equals(repetPassword)
+        val isRepetPassoreValid = password == repetPassword
 
         if(!isEmailValid) view?.displayEmailFailure(R.string.invalid_email)
         else view?.displayEmailFailure(null)
@@ -27,8 +27,8 @@ class CadastroPresentation(private var view: Cadastro.View?, private val reposit
         if(isEmailValid && isPasswordValid && isRepetPassoreValid) {
 
             repository.create(loginEmail, password, object : CadastroCallback {
-                override fun onSuccess(userAuth: UserAuth) {
-                    view?.onUserCreated(userAuth)
+                override fun onSuccess() {
+                    view?.onUserCreated()
                 }
 
                 override fun onFailure(msg: String) {

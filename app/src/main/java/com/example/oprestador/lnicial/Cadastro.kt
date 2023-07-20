@@ -15,7 +15,7 @@ interface Cadastro {
         fun displayEmailFailure(emailError: Int?)
         fun displayPasswordFailure(passwordError: Int?)
         fun displayRepetPasswordFailure(repetPasswordError: Int?)
-        fun onUserCreated(user: UserAuth)
+        fun onUserCreated()
         fun onUserUnCreated(msg: String)
 
     }
