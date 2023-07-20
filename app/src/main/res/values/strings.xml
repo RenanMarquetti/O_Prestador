@@ -51,4 +51,6 @@
     <string name="provincia">Provincia</string>
     <string name="cidade">Cidade</string>
     <string name="bairro">Bairro</string>
+    <string name="usuarioNaoEncontrado">Usuario não encontrado</string>
+    <string name="usuarioJaCadastrado">usuario já está cadastrado</string>
 </resources>

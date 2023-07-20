@@ -4,7 +4,7 @@ import com.example.oprestador.common.model.UserAuth
 
 interface CadastroCallback {
 
-    fun onSuccess(userAuth: UserAuth)
+    fun onSuccess()
     fun onFailure(msg: String)
     fun onComplete()
 }
