@@ -25,12 +25,13 @@ class CadastroFirebaseDataSource : CadastroDataSource {
             .whereEqualTo("email", email)
             .get()
             .addOnSuccessListener { document  ->
-                if(!document.isEmpty) callback.onFailure("usuario já cadastrado")
+                if(!document.isEmpty) {
+                    callback.onFailure("usuario já cadastrado")
+                    callback.onComplete()
+                }
                 else createAuthuser(email, password, callback)
             }
             .addOnFailureListener { exception ->
-                Log.i("teste", "PasseiPelo Falire Listener")
-                Log.i("teste", exception.message ?: "")
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
             }
     }
@@ -47,8 +48,6 @@ class CadastroFirebaseDataSource : CadastroDataSource {
             }
             .addOnFailureListener { exception ->
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
-            }
-            .addOnCompleteListener {
                 callback.onComplete()
             }
     }
