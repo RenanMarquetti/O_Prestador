@@ -30,7 +30,7 @@ class LoginPresenter(private var view: Login.View?, private val repository: Logi
             view?.showProgeess(true)
 
             repository.login(loginEmail,password, object : LoginCallback {
-                override fun onSuccess(userAuth: UserAuth) {
+                override fun onSuccess() {
                     view?.onUserAuthenticated()
                 }
 

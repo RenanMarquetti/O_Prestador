@@ -1,12 +1,10 @@
 package com.example.oprestador.lnicial.data
 
-import android.util.Log
-import com.example.oprestador.R
 import com.example.oprestador.common.model.Database
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class CadastroFirebaseDataSource : CadastroDataSource {
+class FireCadastroDataSource : CadastroDataSource {
     override fun create(email: String, password: String, callback: CadastroCallback) {
 
         //1 - verificar se existe

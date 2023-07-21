@@ -18,7 +18,7 @@ class LoginFakeDataSource : LoginDataSource {
                 userAuth.password != password -> callback.onFailure("Senha Incorreta")
                 else -> {
                     Database.sessionAuth = userAuth
-                    callback.onSuccess(userAuth)
+                    callback.onSuccess()
                 }
             }
 
