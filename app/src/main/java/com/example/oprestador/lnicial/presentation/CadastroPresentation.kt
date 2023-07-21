@@ -26,6 +26,8 @@ class CadastroPresentation(private var view: Cadastro.View?, private val reposit
 
         if(isEmailValid && isPasswordValid && isRepetPassoreValid) {
 
+            view?.showProgeess(true)
+
             repository.create(loginEmail, password, object : CadastroCallback {
                 override fun onSuccess() {
                     view?.onUserCreated()

@@ -1,53 +1,82 @@
 package com.example.oprestador.lnicial.data
 
+import android.util.Log
 import com.example.oprestador.R
+import com.example.oprestador.common.model.Database
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CadastroFirebaseDataSource : CadastroDataSource {
     override fun create(email: String, password: String, callback: CadastroCallback) {
 
-        if (existUser(email, callback)) callback.onFailure("usuario já cadastrado")
-        else {
-            createNewuser(email, password, callback)
-            callback.onSuccess()
-        }
+        //1 - verificar se existe
+        //2 - criar a autenticação do usuario
+        //3 - salvar usuario no fireStore
 
-        callback.onComplete()
+        existUser(email, password, callback)
+        //createNewuser(email: String, password: String, callback: CadastroCallback)
+        //salvarDataBase(uid)
     }
 
-    private fun existUser(email: String, callback: CadastroCallback) : Boolean {
-
-        var exists = false
+    private fun existUser(email: String, password: String, callback: CadastroCallback) {
 
         FirebaseFirestore.getInstance()
             .collection("/users")
             .whereEqualTo("email", email)
             .get()
             .addOnSuccessListener { document  ->
-                exists  = !document.isEmpty
+                if(!document.isEmpty) callback.onFailure("usuario já cadastrado")
+                else createAuthuser(email, password, callback)
             }
             .addOnFailureListener { exception ->
+                Log.i("teste", "PasseiPelo Falire Listener")
+                Log.i("teste", exception.message ?: "")
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
             }
-
-        return exists
     }
 
-    private fun createNewuser(email: String, password: String, callback: CadastroCallback) : String {
-
-        var uid = ""
+    private fun createAuthuser(email: String, password: String, callback: CadastroCallback) {
 
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener { result ->
-                uid = result.user?.uid.toString()
+                val uid = result.user?.uid
+                Database.sesionUid = uid.toString()
+                salvarNoFireStore(uid, email, callback)
+
             }
             .addOnFailureListener { exception ->
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
             }
+            .addOnCompleteListener {
+                callback.onComplete()
+            }
+    }
 
-        return uid
+    private fun salvarNoFireStore(uid: String?, email: String, callback: CadastroCallback) {
+
+        if (uid == null) callback.onFailure("Erro interno do servidor")
+        else {
+            FirebaseFirestore.getInstance()
+                .collection("/users")
+                .document(uid)
+                .set(
+                    hashMapOf(
+                        "email" to email,
+                        "name" to "Teste Renan",
+                        "Moedas" to 0
+                    )
+                )
+                .addOnSuccessListener {
+                    callback.onSuccess()
+                }
+                .addOnFailureListener { exception ->
+                    callback.onFailure(exception.message ?: "Erro interno do servidor")
+                }
+                .addOnCompleteListener {
+                    callback.onComplete()
+                }
+        }
     }
 
 }

@@ -10,6 +10,7 @@ object Database {
     val pedidosList = hashSetOf<Pedido>()
 
     var sessionAuth : UserAuth? = null
+    var sesionUid = ""
 
     fun addUser(email: String, password: String) : UserAuth {
 
