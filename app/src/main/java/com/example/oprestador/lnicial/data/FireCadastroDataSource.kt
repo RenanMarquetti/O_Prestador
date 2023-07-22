@@ -58,10 +58,17 @@ class FireCadastroDataSource : CadastroDataSource {
                 .collection("/users")
                 .document(uid)
                 .set(
-                    hashMapOf(
+                    hashMapOf (
+                        "uid" to uid,
                         "email" to email,
                         "name" to "Teste Renan",
-                        "Moedas" to 0
+                        "money" to 0,
+                        "profile" to {
+                            "telefone" to {
+                                "ddd" to 0
+                                "num-telefone" to 0
+                            }
+                        }
                     )
                 )
                 .addOnSuccessListener {
