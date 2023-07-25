@@ -6,7 +6,7 @@ import com.example.oprestador.lnicial.data.FireCadastroDataSource
 import com.example.oprestador.lnicial.data.CadastroRepository
 import com.example.oprestador.lnicial.data.FireLoginDataSource
 import com.example.oprestador.lnicial.data.LoginRepository
-import com.example.oprestador.user.data.UserFakeDataSource
+import com.example.oprestador.user.data.FireUserDataSource
 import com.example.oprestador.user.data.UserRepository
 
 object DependecInjector {
@@ -19,7 +19,7 @@ object DependecInjector {
     }
 
     fun userRepository() : UserRepository {
-        return UserRepository(UserFakeDataSource())
+        return UserRepository(FireUserDataSource())
     }
 
     fun pedidoNovoRepository() : PedidoNovoRepository {

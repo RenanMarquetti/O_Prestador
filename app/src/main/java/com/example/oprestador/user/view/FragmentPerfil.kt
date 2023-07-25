@@ -67,7 +67,7 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
         binding!!.perfilLoadingButtonSalvar.showProgressBar(enabled)
     }
 
-    override fun updateDone(profile: UserProfile) {
+    override fun updateDone() {
         Toast.makeText(requireContext(), "Update de dados foi concluido", Toast.LENGTH_LONG).show()
     }
 

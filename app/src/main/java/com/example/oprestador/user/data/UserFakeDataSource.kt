@@ -16,7 +16,7 @@ class UserFakeDataSource : UserDataSource {
                 endereco.neighborhood = dados.bairro
             }
 
-        callback.onSuccess(Database.sessionUser!!)
+        callback.onSuccess()
         callback.onComplete()
     }
 }

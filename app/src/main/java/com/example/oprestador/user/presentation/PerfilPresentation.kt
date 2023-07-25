@@ -22,9 +22,11 @@ class PerfilPresentation(private var view: Perfil.View?, private val repository:
 
         if(isDadosValid) {
 
+            view?.showProgess(true)
+
             repository.updateProfile(dados,  object : ProfileCallback {
-                override fun onSuccess(user: User) {
-                    view?.updateDone(user.profile)
+                override fun onSuccess() {
+                    view?.updateDone()
                 }
 
                 override fun onFailure(msg: String) {

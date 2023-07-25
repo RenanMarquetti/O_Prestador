@@ -13,7 +13,7 @@ interface Perfil {
 
     interface View : BaseView<Presenter> {
         fun showProgess(enabled: Boolean)
-        fun updateDone(profile: UserProfile)
+        fun updateDone()
         fun updateFailure(msg: String)
         fun inputError(msg: String)
     }
