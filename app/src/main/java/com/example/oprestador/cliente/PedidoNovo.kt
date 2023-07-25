@@ -13,7 +13,7 @@ interface PedidoNovo {
 
     interface View : BaseView<Presenter> {
         fun showProgess(enabled: Boolean)
-        fun createDone(pedido: Pedido)
+        fun createDone()
         fun createFailure(msg: String)
 
         fun inputError(msg: String)

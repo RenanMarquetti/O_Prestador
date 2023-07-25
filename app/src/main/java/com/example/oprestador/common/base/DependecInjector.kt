@@ -1,6 +1,6 @@
 package com.example.oprestador.common.base
 
-import com.example.oprestador.cliente.data.PedidoNovoFakeDataSource
+import com.example.oprestador.cliente.data.FirePedidoNovoDataSource
 import com.example.oprestador.cliente.data.PedidoNovoRepository
 import com.example.oprestador.lnicial.data.FireCadastroDataSource
 import com.example.oprestador.lnicial.data.CadastroRepository
@@ -23,6 +23,6 @@ object DependecInjector {
     }
 
     fun pedidoNovoRepository() : PedidoNovoRepository {
-        return PedidoNovoRepository(PedidoNovoFakeDataSource())
+        return PedidoNovoRepository(FirePedidoNovoDataSource())
     }
 }

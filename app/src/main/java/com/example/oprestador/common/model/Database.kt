@@ -20,7 +20,7 @@ object Database {
     }
 
     fun addPedido(uuidDono: String, nomeDono: String, titulo: String, descricao: String, local: Address, prazo: Date, valor: String, preco: Int) {
-        pedidosList.add(Pedido(uuidDono, nomeDono, titulo, descricao, local, prazo, BigDecimal(valor), preco))
+        pedidosList.add(Pedido(uuidDono, nomeDono, titulo, descricao, local, prazo, BigDecimal(valor).toString(), preco))
     }
 
     /*init {

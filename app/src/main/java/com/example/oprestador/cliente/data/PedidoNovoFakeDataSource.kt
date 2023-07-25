@@ -12,7 +12,7 @@ class PedidoNovoFakeDataSource() : PedidoNovoDataSource {
 
             Database.pedidosList.add(pedido)
 
-            callback.onSuccess(pedido)
+            callback.onSuccess()
 
             callback.onComplete()
 

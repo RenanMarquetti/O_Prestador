@@ -33,11 +33,11 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
                 val uuid = Database.sessionUser!!.uuid!!
                 val nomeCliente = Database.sessionUser!!.profile.name
 
-                val novoPedido = Pedido(uuid, nomeCliente, titulo, descricao, address, Date(),valor, 300)
+                val novoPedido = Pedido(uuid, nomeCliente, titulo, descricao, address, Date(),valor.toString(), 300)
 
                 repository.salvarNovoPedido(novoPedido, object : PedidoNovoCallback {
-                    override fun onSuccess(pedido: Pedido) {
-                        view?.createDone(pedido)
+                    override fun onSuccess() {
+                        view?.createDone()
                     }
 
                     override fun onFailure(msg: String) {

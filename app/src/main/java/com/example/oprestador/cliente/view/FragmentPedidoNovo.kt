@@ -115,7 +115,7 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
         binding!!.pedidoNovoBtnCriar.showProgressBar(enabled)
     }
 
-    override fun createDone(pedido: Pedido) {
+    override fun createDone() {
         Toast.makeText(requireContext(), "Update de dados foi concluido", Toast.LENGTH_LONG).show()
     }
 
