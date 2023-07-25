@@ -6,7 +6,7 @@ import com.example.oprestador.user.presentation.DadosProfile
 class UserFakeDataSource : UserDataSource {
     override fun updateProfile(dados: DadosProfile, callback: ProfileCallback) {
 
-            with(Database.sessionAuth!!.profile){
+            with(Database.sessionUser!!.profile){
                 name = dados.name
                 telefone.ddd = dados.ddd
                 telefone.telefone = dados.telefone
@@ -16,7 +16,7 @@ class UserFakeDataSource : UserDataSource {
                 endereco.neighborhood = dados.bairro
             }
 
-        callback.onSuccess(Database.sessionAuth!!)
+        callback.onSuccess(Database.sessionUser!!)
         callback.onComplete()
     }
 }

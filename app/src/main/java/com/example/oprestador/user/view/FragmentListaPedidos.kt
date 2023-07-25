@@ -26,7 +26,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
         with(binding!!) {
 
-            listaPedidosTxtQtdMoedas.text = Database.sessionAuth!!.moedas.toString()
+            listaPedidosTxtQtdMoedas.text = Database.sessionUser!!.moedas.toString()
 
             listaPedidosRvPedidos.layoutManager = LinearLayoutManager(requireContext())
             listaPedidosRvPedidos.adapter = ListPedidosAdapter(fragmentAttachListener!!)
@@ -36,7 +36,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
 
     override fun onResume() {
         super.onResume()
-        binding!!.listaPedidosTxtQtdMoedas.text = Database.sessionAuth!!.moedas.toString()
+        binding!!.listaPedidosTxtQtdMoedas.text = Database.sessionUser!!.moedas.toString()
     }
 
     override fun onAttach(context: Context) {

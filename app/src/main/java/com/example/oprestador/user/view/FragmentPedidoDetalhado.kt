@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 
 class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
 
-    private val user = Database.sessionAuth!!
+    private val user = Database.sessionUser!!
     private var binding:FragmentPedidoDetalhadoBinding? = null
     private lateinit var pedido: Pedido
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,9 +29,9 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoTxtPrecoAnuncio.text = pedido.valorAnuncio.toString()
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
                  if(pedido.valorAnuncio <= user.moedas) {
-                     Database.sessionAuth!!.moedas -= pedido.valorAnuncio
+                     Database.sessionUser!!.moedas -= pedido.valorAnuncio
                      //user.profile.listPedidosComprados.add(pedido)
-                     pedido.listUuidUsersQueCompraram.add(user.uuid)
+                     pedido.listUuidUsersQueCompraram.add(user.uuid!!)
                      Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
                  } else {
                      pedidoDetalhadoLayoutButtonLiberarPedido.isEnabled = false

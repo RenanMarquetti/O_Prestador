@@ -6,9 +6,7 @@ import com.example.oprestador.cliente.data.PedidoNovoRepository
 import com.example.oprestador.common.model.Address
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
-import com.example.oprestador.lnicial.data.LoginRepository
 import java.util.Date
-import java.util.UUID
 
 class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val repository: PedidoNovoRepository) : PedidoNovo.Presenter {
 
@@ -32,8 +30,8 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
                 view?.showProgess(true)
 
                 val address = Address(rua, numeroRua, cidade, bairro)
-                val uuid = Database.sessionAuth!!.uuid
-                val nomeCliente = Database.sessionAuth!!.profile.name
+                val uuid = Database.sessionUser!!.uuid!!
+                val nomeCliente = Database.sessionUser!!.profile.name
 
                 val novoPedido = Pedido(uuid, nomeCliente, titulo, descricao, address, Date(),valor, 300)
 

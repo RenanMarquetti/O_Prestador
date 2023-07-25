@@ -9,7 +9,7 @@ object Database {
     val usersAuth = hashSetOf<User>()
     val pedidosList = hashSetOf<Pedido>()
 
-    var sessionAuth : User? = null
+    var sessionUser : User? = null
     var sesionUid = ""
 
     fun addUser(email: String) : User {
@@ -23,7 +23,7 @@ object Database {
         pedidosList.add(Pedido(uuidDono, nomeDono, titulo, descricao, local, prazo, BigDecimal(valor), preco))
     }
 
-    init {
+    /*init {
 
         val userA = addUser("renan@gmail.com")
         userA.moedas = 1000
@@ -35,5 +35,5 @@ object Database {
         addPedido(userA.uuid,userAnome, "Teste Título 3",  "Teste Descrição 3", Address("Rua Tal", "234", "Ponta Grossa", "Contorno"), dateNow, "10.99", 142)
         addPedido(userA.uuid,userAnome,  "Teste Título 4", "Teste Descrição 4", Address("Rua do morador", "432", "Ponta Grossa", "Contorno"), dateNow, "10.99", 371)
 
-    }
+    }*/
 }
