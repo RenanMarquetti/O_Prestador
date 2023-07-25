@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
 import com.example.oprestador.common.base.DependecInjector
-import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.common.view.TxtWatcher
 import com.example.oprestador.databinding.FragmentCadastroBinding
 import com.example.oprestador.lnicial.Cadastro

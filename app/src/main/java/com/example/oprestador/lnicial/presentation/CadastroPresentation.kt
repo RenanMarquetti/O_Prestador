@@ -2,7 +2,6 @@ package com.example.oprestador.lnicial.presentation
 
 import android.util.Patterns
 import com.example.oprestador.R
-import com.example.oprestador.common.model.UserAuth
 import com.example.oprestador.lnicial.data.CadastroCallback
 import com.example.oprestador.lnicial.data.CadastroRepository
 import com.example.oprestador.lnicial.Cadastro

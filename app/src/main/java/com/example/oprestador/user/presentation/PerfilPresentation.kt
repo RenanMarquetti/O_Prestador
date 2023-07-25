@@ -1,7 +1,6 @@
 package com.example.oprestador.user.presentation
 
-import com.example.oprestador.common.model.UserAuth
-import com.example.oprestador.common.model.UserProfile
+import com.example.oprestador.common.model.User
 import com.example.oprestador.user.Perfil
 import com.example.oprestador.user.data.UserRepository
 import com.example.oprestador.user.data.ProfileCallback
@@ -24,7 +23,7 @@ class PerfilPresentation(private var view: Perfil.View?, private val repository:
         if(isDadosValid) {
 
             repository.updateProfile(dados,  object : ProfileCallback {
-                override fun onSuccess(user: UserAuth) {
+                override fun onSuccess(user: User) {
                     view?.updateDone(user.profile)
                 }
 

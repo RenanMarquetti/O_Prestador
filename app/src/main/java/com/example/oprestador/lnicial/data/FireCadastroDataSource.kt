@@ -3,6 +3,7 @@ package com.example.oprestador.lnicial.data
 import com.example.oprestador.common.model.Database
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.oprestador.common.model.User
 
 class FireCadastroDataSource : CadastroDataSource {
     override fun create(email: String, password: String, callback: CadastroCallback) {
@@ -39,10 +40,16 @@ class FireCadastroDataSource : CadastroDataSource {
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener { result ->
-                val uid = result.user?.uid
-                Database.sesionUid = uid.toString()
-                salvarNoFireStore(uid, email, callback)
 
+                if (result.user != null) {
+
+                    val uid = result.user!!.uid
+
+                    Database.sesionUid = uid
+                    salvarNoFireStore(uid, email, callback)
+
+
+                } else callback.onFailure("Erro ao Cadastrar novo usuario")
             }
             .addOnFailureListener { exception ->
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
@@ -50,27 +57,17 @@ class FireCadastroDataSource : CadastroDataSource {
             }
     }
 
-    private fun salvarNoFireStore(uid: String?, email: String, callback: CadastroCallback) {
+    private fun salvarNoFireStore(uid: String, email: String, callback: CadastroCallback) {
 
         if (uid == null) callback.onFailure("Erro interno do servidor")
-        else {
+
+        val user = User(uid,email)
+
+        if (uid != null) {
             FirebaseFirestore.getInstance()
                 .collection("/users")
                 .document(uid)
-                .set(
-                    hashMapOf (
-                        "uid" to uid,
-                        "email" to email,
-                        "name" to "Teste Renan",
-                        "money" to 0,
-                        "profile" to {
-                            "telefone" to {
-                                "ddd" to 0
-                                "num-telefone" to 0
-                            }
-                        }
-                    )
-                )
+                .set(user)
                 .addOnSuccessListener {
                     callback.onSuccess()
                 }
@@ -82,5 +79,4 @@ class FireCadastroDataSource : CadastroDataSource {
                 }
         }
     }
-
 }

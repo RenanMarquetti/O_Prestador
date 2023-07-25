@@ -80,7 +80,8 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos) {
                     layoutPedidoRedumidostxtCliente.text = pedido.nomeDono
                 }
 
-                val containsListUser = Database.sessionAuth!!.profile.listPedidosComprados.contains(pedido)
+                //val containsListUser = Database.sessionAuth!!.profile.listPedidosComprados.contains(pedido)
+                val containsListUser = HashSet<Pedido>().contains(pedido)
 
                 if(!containsListUser ) {
                     itemView.isEnabled = true

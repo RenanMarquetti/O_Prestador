@@ -17,7 +17,7 @@ class CadastroFakeDataSource : CadastroDataSource {
                 callback.onFailure("Usuário já cadastrado")
             } else {
 
-                val newUse = Database.addUser(email, password)
+                val newUse = Database.addUser(email)
                 Database.sessionAuth = newUse
                 callback.onSuccess()
 

@@ -36,7 +36,8 @@ class FragmentMeusPedidos : Fragment(R.layout.fragment_meus_pedidos) {
 
     private class MeusPedidosAdapter : RecyclerView.Adapter<MeusPedidosAdapter.ListPedidosViewHolder> () {
 
-        private val interatorPedidos = Database.sessionAuth!!.profile.listPedidosComprados.iterator()
+        //private val interatorPedidos = Database.sessionAuth!!.profile.listPedidosComprados.iterator()
+        private val interatorPedidos = HashSet<Pedido>().iterator()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
@@ -45,7 +46,7 @@ class FragmentMeusPedidos : Fragment(R.layout.fragment_meus_pedidos) {
         }
 
         override fun getItemCount(): Int {
-            return Database.sessionAuth!!.profile.listPedidosComprados.size
+            return 0
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {

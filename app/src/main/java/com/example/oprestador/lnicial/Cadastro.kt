@@ -2,7 +2,6 @@ package com.example.oprestador.lnicial
 
 import com.example.oprestador.common.base.BasePresenter
 import com.example.oprestador.common.base.BaseView
-import com.example.oprestador.common.model.UserAuth
 
 interface Cadastro {
 

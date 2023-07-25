@@ -6,15 +6,15 @@ import java.util.UUID
 
 object Database {
 
-    val usersAuth = hashSetOf<UserAuth>()
+    val usersAuth = hashSetOf<User>()
     val pedidosList = hashSetOf<Pedido>()
 
-    var sessionAuth : UserAuth? = null
+    var sessionAuth : User? = null
     var sesionUid = ""
 
-    fun addUser(email: String, password: String) : UserAuth {
+    fun addUser(email: String) : User {
 
-        val newUser = UserAuth(UUID.randomUUID().toString(), email, password)
+        val newUser = User(UUID.randomUUID().toString(), email)
         usersAuth.add(newUser)
         return newUser
     }
@@ -25,7 +25,7 @@ object Database {
 
     init {
 
-        val userA = addUser("renan@gmail.com","12345678")
+        val userA = addUser("renan@gmail.com")
         userA.moedas = 1000
         val userAnome = userA.profile.name
         val dateNow = Date()

@@ -30,7 +30,7 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
                  if(pedido.valorAnuncio <= user.moedas) {
                      Database.sessionAuth!!.moedas -= pedido.valorAnuncio
-                     user.profile.listPedidosComprados.add(pedido)
+                     //user.profile.listPedidosComprados.add(pedido)
                      pedido.listUuidUsersQueCompraram.add(user.uuid)
                      Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
                  } else {

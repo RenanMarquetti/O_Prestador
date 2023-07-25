@@ -35,7 +35,7 @@ class FragmentPedidosAbertos : Fragment(R.layout.fragment_pedidos_abertos) {
 
     private class PedidosAbertoAdapter : RecyclerView.Adapter<PedidosAbertoAdapter.ListPedidosViewHolder> () {
 
-        private val interatorPedidos = Database.sessionAuth!!.profile.listPedidosComprados.iterator()
+        //private val interatorPedidos = Database.sessionAuth!!.profile.listPedidosComprados.iterator()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPedidosViewHolder {
             return ListPedidosViewHolder(
@@ -44,11 +44,12 @@ class FragmentPedidosAbertos : Fragment(R.layout.fragment_pedidos_abertos) {
         }
 
         override fun getItemCount(): Int {
-            return Database.sessionAuth!!.profile.listPedidosComprados.size
+            //return Database.sessionAuth!!.profile.listPedidosComprados.size
+            return 0
         }
 
         override fun onBindViewHolder(holder: ListPedidosViewHolder, position: Int) {
-            holder.bind(position, interatorPedidos.next())
+            //holder.bind(position, interatorPedidos.next())
         }
 
         private class ListPedidosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
