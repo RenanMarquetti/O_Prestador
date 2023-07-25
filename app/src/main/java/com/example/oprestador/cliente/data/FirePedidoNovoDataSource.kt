@@ -10,6 +10,8 @@ class FirePedidoNovoDataSource : PedidoNovoDataSource {
             FirebaseFirestore.getInstance()
                 .collection("/pedidos")
                 .document(it!!)
+                .collection("pedidos")
+                .document(pedido.id!!)
                 .set(pedido)
                 .addOnSuccessListener {
                     callback.onSuccess()

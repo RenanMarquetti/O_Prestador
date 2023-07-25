@@ -7,6 +7,7 @@ import com.example.oprestador.common.model.Address
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import java.util.Date
+import java.util.UUID
 
 class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val repository: PedidoNovoRepository) : PedidoNovo.Presenter {
 
@@ -31,9 +32,10 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
 
                 val address = Address(rua, numeroRua, cidade, bairro)
                 val uuid = Database.sessionUser!!.uuid!!
+                val idPedido = UUID.randomUUID().toString()
                 val nomeCliente = Database.sessionUser!!.profile.name
 
-                val novoPedido = Pedido(uuid, nomeCliente, titulo, descricao, address, Date(),valor.toString(), 300)
+                val novoPedido = Pedido(idPedido, uuid, nomeCliente, titulo, descricao, address, Date(),valor.toString(), 300)
 
                 repository.salvarNovoPedido(novoPedido, object : PedidoNovoCallback {
                     override fun onSuccess() {

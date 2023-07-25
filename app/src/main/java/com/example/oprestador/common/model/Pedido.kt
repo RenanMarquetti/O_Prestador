@@ -4,6 +4,7 @@ import java.math.BigDecimal
 import java.util.Date
 
 data class Pedido(
+    val id: String? = null,
     val uuidDono: String? = null,
     val nomeDono: String? = null,
     val titulo: String? = null,
