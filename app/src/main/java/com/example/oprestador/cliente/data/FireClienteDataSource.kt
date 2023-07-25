@@ -4,7 +4,7 @@ import com.example.oprestador.common.model.Pedido
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class FirePedidoNovoDataSource : PedidoNovoDataSource {
+class FireClienteDataSource : ClienteDataSource {
     override fun gravarPedido(pedido: Pedido, callback: PedidoNovoCallback) {
         FirebaseAuth.getInstance().uid.let {
             FirebaseFirestore.getInstance()
@@ -23,5 +23,9 @@ class FirePedidoNovoDataSource : PedidoNovoDataSource {
                     callback.onComplete()
                 }
         }
+    }
+
+    override fun getMeusPedidos(callback: PedidosAbertosCallback<List<Pedido>>) {
+        TODO("Not yet implemented")
     }
 }

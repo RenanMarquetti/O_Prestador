@@ -2,14 +2,14 @@ package com.example.oprestador.cliente.presentation
 
 import com.example.oprestador.cliente.PedidoNovo
 import com.example.oprestador.cliente.data.PedidoNovoCallback
-import com.example.oprestador.cliente.data.PedidoNovoRepository
+import com.example.oprestador.cliente.data.ClienteRepository
 import com.example.oprestador.common.model.Address
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import java.util.Date
 import java.util.UUID
 
-class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val repository: PedidoNovoRepository) : PedidoNovo.Presenter {
+class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val repository: ClienteRepository) : PedidoNovo.Presenter {
 
     override fun createNewPedido(dados: DadosPedido) {
 

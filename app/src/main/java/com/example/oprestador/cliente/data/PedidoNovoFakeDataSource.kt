@@ -4,9 +4,8 @@ import android.os.Handler
 import android.os.Looper
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
-import java.util.Objects
 
-class PedidoNovoFakeDataSource() : PedidoNovoDataSource {
+class PedidoNovoFakeDataSource() : ClienteDataSource {
     override fun gravarPedido(pedido: Pedido, callback: PedidoNovoCallback) {
         Handler(Looper.getMainLooper()).postDelayed({
 
@@ -17,6 +16,10 @@ class PedidoNovoFakeDataSource() : PedidoNovoDataSource {
             callback.onComplete()
 
         },2000)
+    }
+
+    override fun getMeusPedidos(callback: PedidosAbertosCallback<List<Pedido>>) {
+        TODO("Not yet implemented")
     }
 
 }
