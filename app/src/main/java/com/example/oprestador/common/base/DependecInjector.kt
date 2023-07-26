@@ -25,4 +25,9 @@ object DependecInjector {
     fun pedidoNovoRepository() : ClienteRepository {
         return ClienteRepository(FireClienteDataSource())
     }
+
+    fun pedidosAbertosRepository() : ClienteRepository {
+        return ClienteRepository(FireClienteDataSource())
+    }
+
 }

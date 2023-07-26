@@ -127,7 +127,6 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 
-
     override fun onDestroy() {
         binding = null
         presenter.onDestroy()

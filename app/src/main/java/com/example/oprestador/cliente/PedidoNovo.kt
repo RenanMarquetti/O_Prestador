@@ -15,7 +15,6 @@ interface PedidoNovo {
         fun showProgess(enabled: Boolean)
         fun createDone()
         fun createFailure(msg: String)
-
         fun inputError(msg: String)
     }
 
