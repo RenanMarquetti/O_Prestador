@@ -4,4 +4,7 @@ import com.example.oprestador.user.presentation.DadosProfile
 
 interface UserDataSource {
     fun updateProfile(dados: DadosProfile, callback: ProfileCallback)
+
+    fun getFeedPedidos()
+    fun adicionarCompraPedido()
 }

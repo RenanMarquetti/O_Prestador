@@ -32,4 +32,13 @@ class FireUserDataSource : UserDataSource {
                 }
         }
     }
+
+    override fun getFeedPedidos() {
+
+    }
+
+    override fun adicionarCompraPedido() {
+
+    }
+
 }
