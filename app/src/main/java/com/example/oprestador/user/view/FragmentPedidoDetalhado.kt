@@ -9,12 +9,16 @@ import com.example.oprestador.R
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentPedidoDetalhadoBinding
+import com.example.oprestador.user.PedidoDetalhado
 import java.text.SimpleDateFormat
 
-class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
+class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado),PedidoDetalhado.View {
 
     private val user = Database.sessionUser!!
+
     private var binding:FragmentPedidoDetalhadoBinding? = null
+    override lateinit var presenter: PedidoDetalhado.Presenter
+
     private lateinit var pedido: Pedido
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,15 +32,16 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado) {
             pedidoDetalhadoTxtPrazo.text = SimpleDateFormat("dd/MM/yyyy").format(pedido.prazo)
             pedidoDetalhadoTxtPrecoAnuncio.text = pedido.valorAnuncio.toString()
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
-                 if(pedido.valorAnuncio <= user.moedas) {
+
+                if(pedido.valorAnuncio <= user.moedas) {
                      Database.sessionUser!!.moedas -= pedido.valorAnuncio
                      //user.profile.listPedidosComprados.add(pedido)
                      //pedido.listUuidUsersQueCompraram.add(user.uuid!!)
                      Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
-                 } else {
-                     pedidoDetalhadoLayoutButtonLiberarPedido.isEnabled = false
-                     Toast.makeText(requireContext(),"Moedas Insuficientes", Toast.LENGTH_SHORT).show()
-                 }
+                } else {
+                    pedidoDetalhadoLayoutButtonLiberarPedido.isEnabled = false
+                    Toast.makeText(requireContext(),"Moedas Insuficientes", Toast.LENGTH_SHORT).show()
+                }
 
             }
         }
