@@ -1,10 +1,11 @@
 package com.example.oprestador.user.data
 
 import com.example.oprestador.common.model.Database
+import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.user.presentation.DadosProfile
 
 class UserFakeDataSource : UserDataSource {
-    override fun updateProfile(dados: DadosProfile, callback: ProfileCallback) {
+    override fun updateProfile(dados: DadosProfile, callback: UserCallback) {
 
             with(Database.sessionUser!!.profile){
                 name = dados.name
@@ -18,5 +19,13 @@ class UserFakeDataSource : UserDataSource {
 
         callback.onSuccess()
         callback.onComplete()
+    }
+
+    override fun getFeedPedidos(callback: ListaPedidoCallback) {
+
+    }
+
+    override fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback) {
+
     }
 }

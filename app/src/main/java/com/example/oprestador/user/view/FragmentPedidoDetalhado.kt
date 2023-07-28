@@ -6,13 +6,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.oprestador.R
+import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentPedidoDetalhadoBinding
 import com.example.oprestador.user.PedidoDetalhado
+import com.example.oprestador.user.presentation.PedidoDetalhadoPresentation
 import java.text.SimpleDateFormat
 
-class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado),PedidoDetalhado.View {
+class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado), PedidoDetalhado.View {
 
     private val user = Database.sessionUser!!
 
@@ -24,6 +26,7 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado),Ped
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentPedidoDetalhadoBinding.bind(view)
+        presenter = PedidoDetalhadoPresentation(this, DependecInjector.pedidoDetalhadoRepository())
 
         with(binding!!) {
             pedidoDetalhadoTxtTitulo.text = pedido.titulo
@@ -34,13 +37,12 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado),Ped
             pedidoDetalhadoLayoutButtonLiberarPedido.setOnClickListener{
 
                 if(pedido.valorAnuncio <= user.moedas) {
-                     Database.sessionUser!!.moedas -= pedido.valorAnuncio
-                     //user.profile.listPedidosComprados.add(pedido)
-                     //pedido.listUuidUsersQueCompraram.add(user.uuid!!)
-                     Navigation.findNavController(view).navigate(R.id.nav_fragmentListaPedidos)
+                    Database.sessionUser!!.moedas -= pedido.valorAnuncio
+                    presenter.comprarPedido(pedido)
+                    //pedido.listUuidUsersQueCompraram.add(user.uuid!!)
                 } else {
                     pedidoDetalhadoLayoutButtonLiberarPedido.isEnabled = false
-                    Toast.makeText(requireContext(),"Moedas Insuficientes", Toast.LENGTH_SHORT).show()
+                    showFailure("Moedas Insuficientes")
                 }
 
             }
@@ -51,6 +53,13 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado),Ped
         this.pedido = pedido
     }
 
+    override fun showFailure(msg: String) {
+        Toast.makeText(requireContext(),msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun navigateToFragmentListaPedidos() {
+        Navigation.findNavController(requireView()).navigate(R.id.nav_fragmentListaPedidos)
+    }
 
     override fun onDestroy() {
         binding = null

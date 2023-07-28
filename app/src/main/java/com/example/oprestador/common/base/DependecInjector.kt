@@ -30,4 +30,11 @@ object DependecInjector {
         return ClienteRepository(FireClienteDataSource())
     }
 
+    fun pedidoDetalhadoRepository() : UserRepository {
+        return UserRepository(FireUserDataSource())
+    }
+
+    fun listaPedidoRepository() : UserRepository {
+        return UserRepository(FireUserDataSource())
+    }
 }

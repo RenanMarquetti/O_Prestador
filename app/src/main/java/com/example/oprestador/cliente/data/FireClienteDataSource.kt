@@ -15,15 +15,29 @@ class FireClienteDataSource : ClienteDataSource {
                 .document(pedido.id!!)
                 .set(pedido)
                 .addOnSuccessListener {
-                    callback.onSuccess()
+                    gravarNoFeed(pedido, callback)
                 }
                 .addOnFailureListener { exception ->
                     callback.onFailure(exception.message ?: "Erro ao gravar o pedido")
                 }
-                .addOnCompleteListener {
-                    callback.onComplete()
-                }
         }
+    }
+
+    fun gravarNoFeed(pedido: Pedido, callback: PedidoNovoCallback) {
+
+        FirebaseFirestore.getInstance()
+            .collection("/feed")
+            .document(pedido.id!!)
+            .set(pedido)
+            .addOnSuccessListener {
+                callback.onSuccess()
+            }
+            .addOnFailureListener { exception ->
+                callback.onFailure(exception.message ?: "Erro ao gravar o pedido no feed")
+            }
+            .addOnCompleteListener {
+                callback.onComplete()
+            }
     }
 
     override fun getMeusPedidos(callback: PedidosAbertosCallback<List<Pedido>>) {

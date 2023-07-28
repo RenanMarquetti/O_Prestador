@@ -1,8 +1,6 @@
 package com.example.oprestador.user.data
 
-import com.example.oprestador.common.model.User
-
-interface ProfileCallback {
+interface UserCallback {
     fun onSuccess()
     fun onFailure(msg: String)
     fun onComplete()
