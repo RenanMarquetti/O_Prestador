@@ -39,7 +39,7 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado), Pe
                 if(pedido.valorAnuncio <= user.moedas) {
                     Database.sessionUser!!.moedas -= pedido.valorAnuncio
                     presenter.comprarPedido(pedido)
-                    //pedido.listUuidUsersQueCompraram.add(user.uuid!!)
+                    //TODO: Tem que ver para adicionar o usuario na lista de quem comprou o pedido
                 } else {
                     pedidoDetalhadoLayoutButtonLiberarPedido.isEnabled = false
                     showFailure("Moedas Insuficientes")

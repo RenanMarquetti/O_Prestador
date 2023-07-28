@@ -4,6 +4,7 @@ import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.user.presentation.DadosProfile
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 class FireUserDataSource : UserDataSource {
 
@@ -43,8 +44,7 @@ class FireUserDataSource : UserDataSource {
                 val pedidos = mutableListOf<Pedido>()
 
                 for(document in documents) {
-                    val pedido = document.toObject(Pedido::class.java)
-                    pedidos.add(pedido!!)
+                    pedidos.add(document.toObject(Pedido::class.java)!!)
                 }
 
                 callback.onSuccess(pedidos)
@@ -59,10 +59,10 @@ class FireUserDataSource : UserDataSource {
 
     override fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback) {
         FirebaseFirestore.getInstance()
-            .collection("/meus_pedidos")
+            .collection("/pedidos")
             .document(Database.sessionUser!!.uuid!!)
-            .collection(pedido.id!!)
-            .document()
+            .collection("pedidos_comprados")
+            .document(pedido.id!!)
             .set(pedido)
             .addOnSuccessListener {
                 sacarSaldo(Database.sessionUser!!.moedas-pedido.valorAnuncio, callback)
@@ -89,4 +89,27 @@ class FireUserDataSource : UserDataSource {
             }
     }
 
+    override fun getMeusPedidos(callback: ListaPedidoCallback) {
+        FirebaseFirestore.getInstance()
+            .collection("/pedidos")
+            .document(Database.sessionUser!!.uuid!!)
+            .collection("pedidos_comprados")
+            .get()
+            .addOnSuccessListener { collection ->
+                val pedidos = mutableListOf<Pedido>()
+
+                for (document in collection.documents) {
+                    val pedido = document.toObject(Pedido::class.java)
+                    pedidos.add(pedido!!)
+                }
+
+                callback.onSuccess(pedidos)
+            }
+            .addOnFailureListener { exception ->
+                callback.onFailure(exception.message ?: "Erro ao trazer os meus pedidos comprados")
+            }
+            .addOnCompleteListener {
+                callback.onComplete()
+            }
+    }
 }

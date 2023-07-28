@@ -8,4 +8,6 @@ interface UserDataSource {
 
     fun getFeedPedidos(callback: ListaPedidoCallback)
     fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback)
+
+    fun getMeusPedidos(callback: ListaPedidoCallback)
 }

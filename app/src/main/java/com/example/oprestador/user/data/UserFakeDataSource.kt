@@ -28,4 +28,8 @@ class UserFakeDataSource : UserDataSource {
     override fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback) {
 
     }
+
+    override fun getMeusPedidos(callback: ListaPedidoCallback) {
+
+    }
 }

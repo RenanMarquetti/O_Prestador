@@ -11,7 +11,7 @@ class FireClienteDataSource : ClienteDataSource {
             FirebaseFirestore.getInstance()
                 .collection("/pedidos")
                 .document(it!!)
-                .collection("pedidos")
+                .collection("pedidos_gerados")
                 .document(pedido.id!!)
                 .set(pedido)
                 .addOnSuccessListener {
@@ -45,7 +45,7 @@ class FireClienteDataSource : ClienteDataSource {
             FirebaseFirestore.getInstance()
                 .collection("/pedidos")
                 .document(it!!)
-                .collection("pedidos")
+                .collection("pedidos_gerados")
                 .get()
                 .addOnSuccessListener { docs ->
                     val pedidos = mutableListOf<Pedido>()
