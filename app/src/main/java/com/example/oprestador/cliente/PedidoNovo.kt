@@ -16,6 +16,7 @@ interface PedidoNovo {
         fun createDone()
         fun createFailure(msg: String)
         fun inputError(msg: String)
+        fun limparInputs()
     }
 
 }

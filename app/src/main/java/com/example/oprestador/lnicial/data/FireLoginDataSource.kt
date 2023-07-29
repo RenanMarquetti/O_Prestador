@@ -15,6 +15,7 @@ class FireLoginDataSource : LoginDataSource  {
             }
             .addOnFailureListener{ exception ->
                 callback.onFailure(exception.message ?: "Usuario Não Encontrado")
+                callback.onComplete()
             }
 
     }

@@ -54,7 +54,9 @@ class FireCadastroDataSource : CadastroDataSource {
             .addOnFailureListener { exception ->
                 callback.onFailure(exception.message ?: "Erro interno do servidor")
                 callback.onComplete()
+
             }
+
     }
 
     private fun salvarNoFireStore(uid: String, email: String, callback: CadastroCallback) {

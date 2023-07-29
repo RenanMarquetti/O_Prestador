@@ -75,8 +75,24 @@ class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.V
         }
     }
 
+
     private val watcher = TxtWatcher{
         binding!!.pedidoNovoBtnCriar.isEnabled = binding!!.pedidoNovoEditTextValor.text.toString().isNotEmpty()
+    }
+
+    override fun limparInputs() {
+        with(binding!!) {
+            pedidoNovoInputCategoria.text.clear()
+            pedidoNovoInputSubCategoria.text.clear()
+            pedidoNovoInputProvincia.text.clear()
+            pedidoNovoInputCidade.text.clear()
+            pedidoNovoInputBairro.text.clear()
+            pedidoNovoEditTextRua.text.clear()
+            pedidoNovoEditTextNum.text.clear()
+            pedidoNovoEditTextTitulo.text.clear()
+            pedidoNovoEditTextDescricao.text.clear()
+            pedidoNovoEditTextValor.text.clear()
+        }
     }
 
     private fun getIdCidade(provincia: String): Int {

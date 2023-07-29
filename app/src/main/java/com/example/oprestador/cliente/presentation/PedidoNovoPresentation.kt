@@ -48,6 +48,7 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
 
                     override fun onComplete() {
                         view?.showProgess(false)
+                        view?.limparInputs()
                     }
                 })
             } else {
