@@ -1,23 +1,50 @@
 package com.example.oprestador.lnicial.data
 
+import com.example.oprestador.common.base.DefaultCallback
 import com.example.oprestador.common.model.Database
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.oprestador.common.model.User
 
-class FireCadastroDataSource : CadastroDataSource {
-    override fun create(email: String, password: String, callback: CadastroCallback) {
+class InicialFireDataSource : InicialDataSource {
+    override fun login(email: String, password: String, callback: DefaultCallback) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener { res ->
+                if (res != null) trazerDadosUser(res.user!!.uid, callback)
+                else callback.onFailure("Usuario Não Encontrado")
+            }
+            .addOnFailureListener{ exception ->
+                callback.onFailure(exception.message ?: "Usuario Não Encontrado")
+                callback.onComplete()
+            }
 
-        //1 - verificar se existe
-        //2 - criar a autenticação do usuario
-        //3 - salvar usuario no fireStore
-
-        existUser(email, password, callback)
-        //createNewuser(email: String, password: String, callback: CadastroCallback)
-        //salvarDataBase(uid)
     }
 
-    private fun existUser(email: String, password: String, callback: CadastroCallback) {
+    fun trazerDadosUser(uid: String, callback: DefaultCallback) {
+
+        FirebaseFirestore.getInstance()
+            .collection("/users")
+            .document(uid)
+            .get()
+            .addOnSuccessListener { doc ->
+                if(!doc.exists()) callback.onFailure("Erro ao trazer dados do usuario")
+                else {
+                    Database.sessionUser = doc.toObject(User::class.java)
+                    callback.onSuccess()
+                }
+            }
+            .addOnFailureListener{ exception ->
+                callback.onFailure(exception.message ?: "Erro ao trazer dados do usuario")
+            }
+            .addOnCompleteListener {
+                callback.onComplete()
+            }
+    }
+    override fun create(email: String, password: String, callback: DefaultCallback) {
+        existUser(email, password, callback)
+    }
+
+    private fun existUser(email: String, password: String, callback: DefaultCallback) {
 
         FirebaseFirestore.getInstance()
             .collection("/users")
@@ -35,7 +62,7 @@ class FireCadastroDataSource : CadastroDataSource {
             }
     }
 
-    private fun createAuthuser(email: String, password: String, callback: CadastroCallback) {
+    private fun createAuthuser(email: String, password: String, callback: DefaultCallback) {
 
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(email, password)
@@ -59,7 +86,7 @@ class FireCadastroDataSource : CadastroDataSource {
 
     }
 
-    private fun salvarNoFireStore(uid: String, email: String, callback: CadastroCallback) {
+    private fun salvarNoFireStore(uid: String, email: String, callback: DefaultCallback) {
 
         if (uid == null) callback.onFailure("Erro interno do servidor")
 

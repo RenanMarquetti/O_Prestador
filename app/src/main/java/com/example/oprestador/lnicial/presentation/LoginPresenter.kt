@@ -2,11 +2,12 @@ package com.example.oprestador.lnicial.presentation
 
 import android.util.Patterns
 import com.example.oprestador.R
+import com.example.oprestador.common.base.DefaultCallback
 import com.example.oprestador.lnicial.Login
-import com.example.oprestador.lnicial.data.LoginCallback
-import com.example.oprestador.lnicial.data.LoginRepository
+import com.example.oprestador.lnicial.data.InicialDataSource
+import com.example.oprestador.lnicial.data.InicialRepository
 
-class LoginPresenter(private var view: Login.View?, private val repository: LoginRepository) : Login.Presenter {
+class LoginPresenter(private var view: Login.View?, private val repository: InicialRepository) : Login.Presenter {
 
     override fun login(loginEmail: String, password: String) {
 
@@ -28,7 +29,7 @@ class LoginPresenter(private var view: Login.View?, private val repository: Logi
         if (isEmailValid && isPasswordValid) {
             view?.showProgeess(true)
 
-            repository.login(loginEmail,password, object : LoginCallback {
+            repository.login(loginEmail,password, object : DefaultCallback {
                 override fun onSuccess() {
                     view?.onUserAuthenticated()
                 }

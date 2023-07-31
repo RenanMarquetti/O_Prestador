@@ -1,6 +1,6 @@
-package com.example.oprestador.lnicial.data
+package com.example.oprestador.common.base
 
-interface LoginCallback {
+interface DefaultCallback {
     fun onSuccess()
     fun onFailure(msg: String)
     fun onComplete()

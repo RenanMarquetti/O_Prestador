@@ -21,7 +21,7 @@ class FragmentCadastro : Fragment(R.layout.fragment_cadastro), Cadastro.View {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentCadastroBinding.bind(view)
-        presenter = CadastroPresentation(this, DependecInjector.cadastroRepository())
+        presenter = CadastroPresentation(this, DependecInjector.inicialRepository())
 
         with(binding!!) {
 

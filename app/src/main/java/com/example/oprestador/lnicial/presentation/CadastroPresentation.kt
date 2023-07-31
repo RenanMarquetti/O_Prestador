@@ -2,11 +2,11 @@ package com.example.oprestador.lnicial.presentation
 
 import android.util.Patterns
 import com.example.oprestador.R
-import com.example.oprestador.lnicial.data.CadastroCallback
-import com.example.oprestador.lnicial.data.CadastroRepository
+import com.example.oprestador.common.base.DefaultCallback
+import com.example.oprestador.lnicial.data.InicialRepository
 import com.example.oprestador.lnicial.Cadastro
 
-class CadastroPresentation(private var view: Cadastro.View?, private val repository: CadastroRepository) : Cadastro.Presenter {
+class CadastroPresentation(private var view: Cadastro.View?, private val repository: InicialRepository) : Cadastro.Presenter {
 
     override fun create(loginEmail: String, password: String, repetPassword: String) {
 
@@ -27,7 +27,7 @@ class CadastroPresentation(private var view: Cadastro.View?, private val reposit
 
             view?.showProgeess(true)
 
-            repository.create(loginEmail, password, object : CadastroCallback {
+            repository.create(loginEmail, password, object : DefaultCallback {
                 override fun onSuccess() {
                     view?.onUserCreated()
                 }
