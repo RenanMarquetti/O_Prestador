@@ -1,5 +1,7 @@
 package com.example.oprestador.user.data
 
+import com.example.oprestador.common.base.DefaultCallback
+import com.example.oprestador.common.base.TypeCallback
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.user.presentation.DadosProfile
@@ -8,7 +10,7 @@ import com.google.firebase.firestore.ktx.toObject
 
 class FireUserDataSource : UserDataSource {
 
-    override fun updateProfile(dados: DadosProfile, callback: UserCallback) {
+    override fun updateProfile(dados: DadosProfile, callback: DefaultCallback) {
 
         with(Database.sessionUser!!.profile) {
             name = dados.name
@@ -35,7 +37,7 @@ class FireUserDataSource : UserDataSource {
         }
     }
 
-    override fun getFeedPedidos(callback: ListaPedidoCallback) {
+    override fun getFeedPedidos(callback: TypeCallback<List<Pedido>>) {
         FirebaseFirestore.getInstance()
             .collection("/feed")
             .get()
@@ -57,7 +59,7 @@ class FireUserDataSource : UserDataSource {
             }
     }
 
-    override fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback) {
+    override fun adicionarCompraPedido(pedido: Pedido, callback: DefaultCallback) {
         FirebaseFirestore.getInstance()
             .collection("/pedidos")
             .document(Database.sessionUser!!.uuid!!)
@@ -73,7 +75,7 @@ class FireUserDataSource : UserDataSource {
 
     }
 
-    fun sacarSaldo(valor : Int, callback: UserCallback) {
+    fun sacarSaldo(valor : Int, callback: DefaultCallback) {
         FirebaseFirestore.getInstance()
             .collection("/users")
             .document(Database.sessionUser!!.uuid!!)
@@ -89,7 +91,7 @@ class FireUserDataSource : UserDataSource {
             }
     }
 
-    override fun getMeusPedidos(callback: ListaPedidoCallback) {
+    override fun getMeusPedidos(callback: TypeCallback<List<Pedido>>) {
         FirebaseFirestore.getInstance()
             .collection("/pedidos")
             .document(Database.sessionUser!!.uuid!!)

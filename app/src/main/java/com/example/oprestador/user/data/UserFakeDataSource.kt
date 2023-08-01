@@ -1,11 +1,13 @@
 package com.example.oprestador.user.data
 
+import com.example.oprestador.common.base.DefaultCallback
+import com.example.oprestador.common.base.TypeCallback
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.user.presentation.DadosProfile
 
 class UserFakeDataSource : UserDataSource {
-    override fun updateProfile(dados: DadosProfile, callback: UserCallback) {
+    override fun updateProfile(dados: DadosProfile, callback: DefaultCallback) {
 
             with(Database.sessionUser!!.profile){
                 name = dados.name
@@ -21,15 +23,15 @@ class UserFakeDataSource : UserDataSource {
         callback.onComplete()
     }
 
-    override fun getFeedPedidos(callback: ListaPedidoCallback) {
+    override fun getFeedPedidos(callback: TypeCallback<List<Pedido>>) {
 
     }
 
-    override fun adicionarCompraPedido(pedido: Pedido, callback: UserCallback) {
+    override fun adicionarCompraPedido(pedido: Pedido, callback: DefaultCallback) {
 
     }
 
-    override fun getMeusPedidos(callback: ListaPedidoCallback) {
+    override fun getMeusPedidos(callback: TypeCallback<List<Pedido>>) {
 
     }
 }
