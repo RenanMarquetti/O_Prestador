@@ -21,7 +21,6 @@ import com.example.oprestador.user.view.UserActivity
 class FragmentPedidoNovo : Fragment(R.layout.fragment_pedido_novo), PedidoNovo.View {
 
     private var binding: FragmentPedidoNovoBinding? = null
-
     override lateinit var presenter: PedidoNovo.Presenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

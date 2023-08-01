@@ -53,4 +53,5 @@
     <string name="bairro">Bairro</string>
     <string name="usuarioNaoEncontrado">Usuario não encontrado</string>
     <string name="usuarioJaCadastrado">usuario já está cadastrado</string>
+    <string name="municio">Município</string>
 </resources>

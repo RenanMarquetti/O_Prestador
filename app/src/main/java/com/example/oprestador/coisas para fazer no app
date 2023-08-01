@@ -1,0 +1,29 @@
+prototipo:
+    1- arrumar as coisas que ele disse no audio:
+        + trocar de cidade para municipios ao gerar um novo orçamento
+        - pesquisar sobre a nova divisão administrativa da angola
+
+    2- refator o codigo do app para ficar mais limpo e de facil manutenção
+
+    3- arrumar as cores do texto ao digitar nos inputs
+
+    4- inserir uma forma de fazer upload de fotos no perfil do usuario
+
+    5- não mostrar anuncios que você é o dono
+
+    6- consertar o bug de quando abre um anuncio detalhado e ainda dá para clicar em um anuncio outro anuncio do feed
+
+    7 - inserir barra de rolagem na area de criação de pedido
+
+mpv:
+    1- arrumar uma forma de conectar as pessoas que compraram o anuncio e os donos do anuncio
+
+    2- limitar a quantidade de anuncios que aparece no feed
+
+    3- inserir uma forma de filtrar os anuncio que aparece no feed
+
+    4- inserir uma loja de libongos dentro do app
+
+    5- ao clicar nos pedidos em aberto tem que mostrar os dados de cada prestador e do dono do pedido
+
+    6- tem que arrumar uma forma melhor de navegar entre as activtis User e Cliente

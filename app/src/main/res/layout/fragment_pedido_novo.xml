@@ -71,7 +71,7 @@
                     android:id="@+id/pedido_novo_input_cidade"
                     android:layout_height="match_parent"
                     style="@style/Input_AutoCompleteTextView"
-                    android:hint="@string/cidade"/>
+                    android:hint="@string/municio"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
