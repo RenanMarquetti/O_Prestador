@@ -1,6 +1,8 @@
 package com.example.oprestador.cliente.view
 
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,7 @@ import com.example.oprestador.cliente.presentation.PedidosAbertosPresentation
 import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
+import com.example.oprestador.common.view.DefaultAdapterPedidos
 import com.example.oprestador.databinding.FragmentPedidosAbertosBinding
 import com.example.oprestador.databinding.LayoutPedidosResumidoBinding
 
@@ -51,6 +54,10 @@ class FragmentPedidosAbertos() : Fragment(R.layout.fragment_pedidos_abertos), Pe
     override fun onDestroy() {
         binding = null
         super.onDestroy()
+    }
+
+    private class Adapter(private val pedidos: List<Pedido>) : DefaultAdapterPedidos(pedidos){
+
     }
 
     private class PedidosAbertoAdapter(private val pedidos: List<Pedido>) : RecyclerView.Adapter<PedidosAbertoAdapter.ListPedidosViewHolder> () {
