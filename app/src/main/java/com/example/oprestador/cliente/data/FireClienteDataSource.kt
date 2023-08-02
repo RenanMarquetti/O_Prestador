@@ -1,12 +1,14 @@
 package com.example.oprestador.cliente.data
 
+import com.example.oprestador.common.base.DefaultCallback
+import com.example.oprestador.common.base.TypeCallback
 import com.example.oprestador.common.model.Pedido
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 
 class FireClienteDataSource : ClienteDataSource {
-    override fun gravarPedido(pedido: Pedido, callback: PedidoNovoCallback) {
+    override fun gravarPedido(pedido: Pedido, callback: DefaultCallback) {
         FirebaseAuth.getInstance().uid.let {
             FirebaseFirestore.getInstance()
                 .collection("/pedidos")
@@ -23,7 +25,7 @@ class FireClienteDataSource : ClienteDataSource {
         }
     }
 
-    fun gravarNoFeed(pedido: Pedido, callback: PedidoNovoCallback) {
+    fun gravarNoFeed(pedido: Pedido, callback: DefaultCallback) {
 
         FirebaseFirestore.getInstance()
             .collection("/feed")
@@ -40,7 +42,7 @@ class FireClienteDataSource : ClienteDataSource {
             }
     }
 
-    override fun getMeusPedidos(callback: PedidosAbertosCallback<List<Pedido>>) {
+    override fun getMeusPedidos(callback: TypeCallback<List<Pedido>>) {
         FirebaseAuth.getInstance().uid.let {
             FirebaseFirestore.getInstance()
                 .collection("/pedidos")
