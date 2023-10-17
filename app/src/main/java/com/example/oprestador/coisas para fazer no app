@@ -27,3 +27,6 @@ mpv:
     5- ao clicar nos pedidos em aberto tem que mostrar os dados de cada prestador e do dono do pedido
 
     6- tem que arrumar uma forma melhor de navegar entre as activtis User e Cliente
+
+    7- tem que implementar a api rest com essas duas bibliotecas
+    https://medium.com/@cardosof.gui/retrofit-x-ktor-qual-utilizar-fac6bed50a08
