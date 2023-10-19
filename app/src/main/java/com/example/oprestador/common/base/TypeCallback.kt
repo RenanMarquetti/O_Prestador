@@ -1,9 +1,9 @@
-package com.example.oprestador.cliente.data
+package com.example.oprestador.common.base
 
 import com.example.oprestador.common.model.Pedido
 
-interface PedidoNovoCallback {
-    fun onSuccess()
+interface TypeCallback<T> {
+    fun onSuccess(res : T)
     fun onFailure(msg: String)
     fun onComplete()
 }

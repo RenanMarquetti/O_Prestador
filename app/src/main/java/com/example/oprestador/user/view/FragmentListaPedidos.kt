@@ -29,7 +29,7 @@ class FragmentListaPedidos : Fragment(R.layout.fragment_lista_pedidos), ListaPed
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentListaPedidosBinding.bind(view)
-        presenter = ListaPedidoPresentation(this, DependecInjector.listaPedidoRepository())
+        presenter = ListaPedidoPresentation(this, DependecInjector.userRepository())
 
         with(binding!!) {
 

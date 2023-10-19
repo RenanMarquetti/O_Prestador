@@ -26,7 +26,7 @@ class FragmentPedidoDetalhado : Fragment(R.layout.fragment_pedido_detalhado), Pe
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentPedidoDetalhadoBinding.bind(view)
-        presenter = PedidoDetalhadoPresentation(this, DependecInjector.pedidoDetalhadoRepository())
+        presenter = PedidoDetalhadoPresentation(this, DependecInjector.userRepository())
 
         with(binding!!) {
             pedidoDetalhadoTxtTitulo.text = pedido.titulo

@@ -1,8 +1,8 @@
 package com.example.oprestador.cliente.presentation
 
 import com.example.oprestador.cliente.PedidoNovo
-import com.example.oprestador.cliente.data.PedidoNovoCallback
 import com.example.oprestador.cliente.data.ClienteRepository
+import com.example.oprestador.common.base.DefaultCallback
 import com.example.oprestador.common.model.Address
 import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
@@ -37,7 +37,7 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
 
                 val novoPedido = Pedido(idPedido, uuid, nomeCliente, titulo, descricao, address, Date(),valor.toString(), 300)
 
-                repository.salvarNovoPedido(novoPedido, object : PedidoNovoCallback {
+                repository.salvarNovoPedido(novoPedido, object : DefaultCallback {
                     override fun onSuccess() {
                         view?.createDone()
                     }

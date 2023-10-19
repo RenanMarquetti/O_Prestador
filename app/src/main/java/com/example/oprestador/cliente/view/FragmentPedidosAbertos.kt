@@ -10,10 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oprestador.R
 import com.example.oprestador.cliente.PedidosAbertos
-import com.example.oprestador.cliente.presentation.PedidoNovoPresentation
 import com.example.oprestador.cliente.presentation.PedidosAbertosPresentation
 import com.example.oprestador.common.base.DependecInjector
-import com.example.oprestador.common.model.Database
 import com.example.oprestador.common.model.Pedido
 import com.example.oprestador.databinding.FragmentPedidosAbertosBinding
 import com.example.oprestador.databinding.LayoutPedidosResumidoBinding

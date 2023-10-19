@@ -1,8 +1,8 @@
 package com.example.oprestador.user.presentation
 
+import com.example.oprestador.common.base.DefaultCallback
 import com.example.oprestador.user.Perfil
 import com.example.oprestador.user.data.UserRepository
-import com.example.oprestador.user.data.UserCallback
 
 class PerfilPresentation(private var view: Perfil.View?, private val repository: UserRepository) : Perfil.Presenter {
     override fun updateProfile(dados: DadosProfile) {
@@ -23,7 +23,7 @@ class PerfilPresentation(private var view: Perfil.View?, private val repository:
 
             view?.showProgess(true)
 
-            repository.updateProfile(dados,  object : UserCallback {
+            repository.updateProfile(dados,  object : DefaultCallback {
                 override fun onSuccess() {
                     view?.updateDone()
                 }
