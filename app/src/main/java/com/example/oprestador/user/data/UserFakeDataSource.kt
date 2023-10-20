@@ -9,7 +9,7 @@ import com.example.oprestador.user.presentation.DadosProfile
 class UserFakeDataSource : UserDataSource {
     override fun updateProfile(dados: DadosProfile, callback: DefaultCallback) {
 
-            with(Database.sessionUser!!.profile){
+            with(Database.sessionUser!!){
                 name = dados.name
                 telefone.ddd = dados.ddd
                 telefone.telefone = dados.telefone

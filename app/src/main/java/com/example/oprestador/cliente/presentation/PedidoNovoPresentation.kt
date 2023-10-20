@@ -31,9 +31,9 @@ class PedidoNovoPresentation(private var view: PedidoNovo.View?, private val rep
                 view?.showProgess(true)
 
                 val address = Address(rua, numeroRua, cidade, bairro)
-                val uuid = Database.sessionUser!!.uuid!!
+                val uuid = Database.sessionUser!!.uuid
                 val idPedido = UUID.randomUUID().toString()
-                val nomeCliente = Database.sessionUser!!.profile.name
+                val nomeCliente = Database.sessionUser!!.name
 
                 val novoPedido = Pedido(idPedido, uuid, nomeCliente, titulo, descricao, address, Date(),valor.toString(), 300)
 

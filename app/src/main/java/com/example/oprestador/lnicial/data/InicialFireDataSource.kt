@@ -2,10 +2,11 @@ package com.example.oprestador.lnicial.data
 
 import com.example.oprestador.common.base.DefaultCallback
 import com.example.oprestador.common.model.Database
+import com.example.oprestador.common.model.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.oprestador.common.model.User
 
+@Deprecated(message = "não terminado, use inicialRetrofitDataSource")
 class InicialFireDataSource : InicialDataSource {
     override fun login(email: String, password: String, callback: DefaultCallback) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
@@ -29,7 +30,7 @@ class InicialFireDataSource : InicialDataSource {
             .addOnSuccessListener { doc ->
                 if(!doc.exists()) callback.onFailure("Erro ao trazer dados do usuario")
                 else {
-                    Database.sessionUser = doc.toObject(User::class.java)
+                    Database.sessionUser = doc.toObject(UserProfile::class.java)
                     callback.onSuccess()
                 }
             }
@@ -72,7 +73,7 @@ class InicialFireDataSource : InicialDataSource {
 
                     val uid = result.user!!.uid
 
-                    Database.sesionUid = uid
+                    //Database.sesionUid = uid
                     salvarNoFireStore(uid, email, callback)
 
 
@@ -90,22 +91,22 @@ class InicialFireDataSource : InicialDataSource {
 
         if (uid == null) callback.onFailure("Erro interno do servidor")
 
-        val user = User(uid,email)
-
-        if (uid != null) {
-            FirebaseFirestore.getInstance()
-                .collection("/users")
-                .document(uid)
-                .set(user)
-                .addOnSuccessListener {
-                    callback.onSuccess()
-                }
-                .addOnFailureListener { exception ->
-                    callback.onFailure(exception.message ?: "Erro interno do servidor")
-                }
-                .addOnCompleteListener {
-                    callback.onComplete()
-                }
-        }
+//        val user = User(uid,email)
+//
+//        if (uid != null) {
+//            FirebaseFirestore.getInstance()
+//                .collection("/users")
+//                .document(uid)
+//                .set(user)
+//                .addOnSuccessListener {
+//                    callback.onSuccess()
+//                }
+//                .addOnFailureListener { exception ->
+//                    callback.onFailure(exception.message ?: "Erro interno do servidor")
+//                }
+//                .addOnCompleteListener {
+//                    callback.onComplete()
+//                }
+//        }
     }
 }

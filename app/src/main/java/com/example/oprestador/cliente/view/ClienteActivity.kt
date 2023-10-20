@@ -1,11 +1,8 @@
 package com.example.oprestador.cliente.view
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,9 +10,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.oprestador.R
+import com.example.oprestador.common.apis.ApiUser
+import com.example.oprestador.common.base.DependecInjector
 import com.example.oprestador.databinding.ActivityClienteBinding
-import com.example.oprestador.user.view.UserActivity
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class ClienteActivity : AppCompatActivity() {
 
@@ -50,4 +48,5 @@ class ClienteActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navControler.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

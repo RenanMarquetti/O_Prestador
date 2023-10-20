@@ -51,7 +51,7 @@ class FragmentPerfil : Fragment(R.layout.fragment_perfil), Perfil.View {
     }
 
     private fun inserirDados() {
-        with(Database.sessionUser!!.profile) {
+        with(Database.sessionUser!!) {
             binding!!.perfilEditNomeCompleto.setText(name)
             binding!!.perfilEditDdd.setText(telefone.ddd)
             binding!!.perfilEditTelefone.setText(telefone.telefone)

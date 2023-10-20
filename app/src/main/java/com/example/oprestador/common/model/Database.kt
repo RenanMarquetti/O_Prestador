@@ -6,16 +6,7 @@ import java.util.UUID
 
 object Database {
 
-    val usersAuth = hashSetOf<User>()
     val pedidosList = hashSetOf<Pedido>()
+    var sessionUser : UserProfile? = null
 
-    var sessionUser : User? = null
-    var sesionUid = ""
-
-    fun addUser(email: String) : User {
-
-        val newUser = User(UUID.randomUUID().toString(), email)
-        usersAuth.add(newUser)
-        return newUser
-    }
 }
