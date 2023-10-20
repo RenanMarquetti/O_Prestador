@@ -1,4 +1,4 @@
-package com.example.oprestador.cliente.testeretrofit
+package com.example.oprestador.common.apis
 
 import com.example.oprestador.common.model.UserProfile
 import retrofit2.http.GET
@@ -12,4 +12,8 @@ interface ApiUser {
 
     @POST("/users")
     suspend fun registerNewUser(user: UserProfile) : UserProfile
+
+//    val apiServiceUser = DependecInjector.retrofit().create(ApiUser::class.java)
+//    val userProfile = apiServiceUser.getUserByUUID(FirebaseAuth.getInstance().uid.toString())
+
 }
