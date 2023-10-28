@@ -67,8 +67,6 @@ class InicialRetrofitDataSource : InicialDataSource {
     }
 
     private fun createNewUserDatabase(userProfile: UserProfile, callback: DefaultCallback) {
-        //todo: estudar definitivamente esse artigo sobre corrotinas do kotlin
-        // https://jhrl.medium.com/kotlin-coroutines-uma-abordagem-diferente-para-programa%C3%A7%C3%A3o-concorrente-85b16573c2093
 
         val apiUser = DependecInjector.retrofit().create(ApiUser::class.java)
 
